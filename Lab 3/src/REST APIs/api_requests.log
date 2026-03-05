@@ -1,0 +1,77 @@
+2026-03-05 14:13:31,337 - __main__ - INFO - Attempt 1/3: GET https://api.github.com/repos/python/cpython
+2026-03-05 14:13:32,523 - __main__ - INFO - ✓ Success: https://api.github.com/repos/python/cpython
+2026-03-05 14:16:07,044 - __main__ - INFO - Attempt 1/3: GET https://api.github.com/repos/python/cpython
+2026-03-05 14:16:07,512 - __main__ - INFO - ✓ Success: https://api.github.com/repos/python/cpython
+2026-03-05 14:17:28,281 - GitHubAPI - INFO - GET /repos/pandas-dev/pandas - Status: 200
+2026-03-05 14:17:29,596 - GitHubAPI - INFO - GET /search/repositories - Status: 200
+2026-03-05 14:25:50,060 - GitHubAPI - INFO - GET /repos/tensorflow/tensorflow - Status: 200
+2026-03-05 14:25:50,436 - GitHubAPI - INFO - GET /repos/pytorch/pytorch - Status: 200
+2026-03-05 14:25:50,779 - GitHubAPI - INFO - GET /repos/scikit-learn/scikit-learn - Status: 200
+2026-03-05 14:42:05,271 - fetch_user_repos_paginated - INFO - Fetching page 1 for user abdulrahmannmostafa...
+2026-03-05 14:42:06,946 - fetch_user_repos_paginated - INFO - Last page reached with fewer than 100 repositories.
+2026-03-05 14:42:47,299 - fetch_user_repos_paginated - INFO - Fetching page 1 for user abdulrahmannmostafa...
+2026-03-05 14:42:48,846 - fetch_user_repos_paginated - INFO - Last page reached with fewer than 100 repositories.
+2026-03-05 15:00:29,959 - GitHubAnalyzer - INFO - Searching repositories with query: 'data science', language: 'python', min_stars: 500
+2026-03-05 15:00:29,961 - GitHubAnalyzer - INFO - Searching repositories with query: data science language:python stars:>=500
+2026-03-05 15:00:44,841 - GitHubAnalyzer - INFO - Searching repositories with query: 'data science', language: 'python', min_stars: 500
+2026-03-05 15:00:44,842 - GitHubAnalyzer - INFO - Searching repositories with query: data science language:python stars:>=500
+2026-03-05 15:00:46,370 - GitHubAnalyzer - INFO - GET /search/repositories - Status: 200
+2026-03-05 15:00:46,376 - GitHubAnalyzer - INFO - Found 30 repositories matching criteria.
+2026-03-05 15:00:46,382 - GitHubAnalyzer - INFO - Comparing repositories: ['pandas-dev/pandas', 'scikit-learn/scikit-learn', 'tensorflow/tensorflow', 'pytorch/pytorch', 'keras-team/keras']
+2026-03-05 15:01:07,928 - GitHubAnalyzer - INFO - Searching repositories with query: 'data science', language: 'python', min_stars: 500
+2026-03-05 15:01:07,929 - GitHubAnalyzer - INFO - Searching repositories with query: data science language:python stars:>=500
+2026-03-05 15:01:09,545 - GitHubAnalyzer - INFO - GET /search/repositories - Status: 200
+2026-03-05 15:01:09,548 - GitHubAnalyzer - INFO - Found 30 repositories matching criteria.
+2026-03-05 15:01:09,552 - GitHubAnalyzer - INFO - Comparing repositories: ['pandas-dev/pandas', 'scikit-learn/scikit-learn', 'tensorflow/tensorflow', 'pytorch/pytorch', 'keras-team/keras']
+2026-03-05 15:01:09,878 - GitHubAnalyzer - INFO - GET /repos/pandas-dev/pandas - Status: 200
+2026-03-05 15:01:10,205 - GitHubAnalyzer - INFO - GET /repos/scikit-learn/scikit-learn - Status: 200
+2026-03-05 15:01:10,605 - GitHubAnalyzer - INFO - GET /repos/tensorflow/tensorflow - Status: 200
+2026-03-05 15:01:10,984 - GitHubAnalyzer - INFO - GET /repos/pytorch/pytorch - Status: 200
+2026-03-05 15:01:11,350 - GitHubAnalyzer - INFO - GET /repos/keras-team/keras - Status: 200
+2026-03-05 15:01:11,355 - GitHubAnalyzer - INFO - Comparison complete. Found 5 repositories.
+2026-03-05 15:01:11,364 - GitHubAnalyzer - INFO - Exporting DataFrame to task3_results.xlsx
+2026-03-05 15:02:50,219 - GitHubAnalyzer - INFO - Searching repositories with query: 'data science', language: 'python', min_stars: 500
+2026-03-05 15:02:50,221 - GitHubAnalyzer - INFO - Searching repositories with query: data science language:python stars:>=500
+2026-03-05 15:02:51,832 - GitHubAnalyzer - INFO - GET /search/repositories - Status: 200
+2026-03-05 15:02:51,835 - GitHubAnalyzer - INFO - Found 30 repositories matching criteria.
+2026-03-05 15:02:51,839 - GitHubAnalyzer - INFO - Comparing repositories: ['pandas-dev/pandas', 'scikit-learn/scikit-learn', 'tensorflow/tensorflow', 'pytorch/pytorch', 'keras-team/keras']
+2026-03-05 15:02:52,238 - GitHubAnalyzer - INFO - GET /repos/pandas-dev/pandas - Status: 200
+2026-03-05 15:02:52,588 - GitHubAnalyzer - INFO - GET /repos/scikit-learn/scikit-learn - Status: 200
+2026-03-05 15:02:52,984 - GitHubAnalyzer - INFO - GET /repos/tensorflow/tensorflow - Status: 200
+2026-03-05 15:02:53,370 - GitHubAnalyzer - INFO - GET /repos/pytorch/pytorch - Status: 200
+2026-03-05 15:02:53,794 - GitHubAnalyzer - INFO - GET /repos/keras-team/keras - Status: 200
+2026-03-05 15:02:53,796 - GitHubAnalyzer - INFO - Comparison complete. Found 5 repositories.
+2026-03-05 15:02:53,801 - GitHubAnalyzer - INFO - Exporting DataFrame to task3_results.xlsx
+2026-03-05 15:04:15,337 - GitHubAnalyzer - INFO - Searching repositories with query: 'data science', language: 'python', min_stars: 500
+2026-03-05 15:04:15,339 - GitHubAnalyzer - INFO - Searching repositories with query: data science language:python stars:>=500
+2026-03-05 15:04:16,745 - GitHubAnalyzer - INFO - GET /search/repositories - Status: 200
+2026-03-05 15:04:16,754 - GitHubAnalyzer - INFO - Found 30 repositories matching criteria.
+2026-03-05 15:04:16,768 - GitHubAnalyzer - INFO - Comparing repositories: ['pandas-dev/pandas', 'scikit-learn/scikit-learn', 'tensorflow/tensorflow', 'pytorch/pytorch', 'keras-team/keras']
+2026-03-05 15:04:17,102 - GitHubAnalyzer - INFO - GET /repos/pandas-dev/pandas - Status: 200
+2026-03-05 15:04:17,448 - GitHubAnalyzer - INFO - GET /repos/scikit-learn/scikit-learn - Status: 200
+2026-03-05 15:04:17,940 - GitHubAnalyzer - INFO - GET /repos/tensorflow/tensorflow - Status: 200
+2026-03-05 15:04:18,289 - GitHubAnalyzer - INFO - GET /repos/pytorch/pytorch - Status: 200
+2026-03-05 15:04:18,630 - GitHubAnalyzer - INFO - GET /repos/keras-team/keras - Status: 200
+2026-03-05 15:04:18,634 - GitHubAnalyzer - INFO - Comparison complete. Found 5 repositories.
+2026-03-05 15:04:18,644 - GitHubAnalyzer - INFO - Exporting DataFrame to task3_results.xlsx
+2026-03-05 15:11:38,550 - __main__ - INFO - Attempt 1/3: GET https://api.github.com/repos/python/cpython
+2026-03-05 15:11:38,962 - __main__ - INFO - ✓ Success: https://api.github.com/repos/python/cpython
+2026-03-05 15:11:45,074 - GitHubAPI - INFO - GET /repos/pandas-dev/pandas - Status: 200
+2026-03-05 15:11:46,235 - GitHubAPI - INFO - GET /search/repositories - Status: 200
+2026-03-05 15:12:02,924 - GitHubAPI - INFO - GET /repos/tensorflow/tensorflow - Status: 200
+2026-03-05 15:12:03,314 - GitHubAPI - INFO - GET /repos/pytorch/pytorch - Status: 200
+2026-03-05 15:12:03,648 - GitHubAPI - INFO - GET /repos/scikit-learn/scikit-learn - Status: 200
+2026-03-05 15:13:19,145 - fetch_user_repos_paginated - INFO - Fetching page 1 for user abdulrahmannmostafa...
+2026-03-05 15:13:19,976 - fetch_user_repos_paginated - INFO - Last page reached with fewer than 100 repositories.
+2026-03-05 15:13:59,147 - GitHubAnalyzer - INFO - Searching repositories with query: 'data science', language: 'python', min_stars: 500
+2026-03-05 15:13:59,148 - GitHubAnalyzer - INFO - Searching repositories with query: data science language:python stars:>=500
+2026-03-05 15:14:00,653 - GitHubAnalyzer - INFO - GET /search/repositories - Status: 200
+2026-03-05 15:14:00,663 - GitHubAnalyzer - INFO - Found 30 repositories matching criteria.
+2026-03-05 15:14:00,673 - GitHubAnalyzer - INFO - Comparing repositories: ['pandas-dev/pandas', 'scikit-learn/scikit-learn', 'tensorflow/tensorflow', 'pytorch/pytorch', 'keras-team/keras']
+2026-03-05 15:14:00,995 - GitHubAnalyzer - INFO - GET /repos/pandas-dev/pandas - Status: 200
+2026-03-05 15:14:01,319 - GitHubAnalyzer - INFO - GET /repos/scikit-learn/scikit-learn - Status: 200
+2026-03-05 15:14:01,703 - GitHubAnalyzer - INFO - GET /repos/tensorflow/tensorflow - Status: 200
+2026-03-05 15:14:02,075 - GitHubAnalyzer - INFO - GET /repos/pytorch/pytorch - Status: 200
+2026-03-05 15:14:02,449 - GitHubAnalyzer - INFO - GET /repos/keras-team/keras - Status: 200
+2026-03-05 15:14:02,453 - GitHubAnalyzer - INFO - Comparison complete. Found 5 repositories.
+2026-03-05 15:14:02,461 - GitHubAnalyzer - INFO - Exporting DataFrame to task3_results.xlsx
