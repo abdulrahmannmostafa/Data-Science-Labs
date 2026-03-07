@@ -1,0 +1,51 @@
+book_id,title,author,genre,publication_year,copies_available
+1,Book 1,Mark Twain,Children's,2015,13
+2,Book 2,Ernest Hemingway,Fantasy,1953,10
+3,Book 3,Ernest Hemingway,Science Fiction,1987,1
+4,Book 4,Isaac Asimov,Children's,1963,4
+5,Book 5,J.R.R. Tolkien,Mystery,1951,3
+6,Book 6,Mark Twain,Science Fiction,1977,9
+7,Book 7,Ernest Hemingway,Fantasy,1966,13
+8,Book 8,George Orwell,Children's,1963,7
+9,Book 9,Ernest Hemingway,History,1982,11
+10,Book 10,J.R.R. Tolkien,History,2000,12
+11,Book 11,Agatha Christie,Science Fiction,1953,2
+12,Book 12,Leo Tolstoy,Philosophy,2018,1
+13,Book 13,George Orwell,Children's,1953,16
+14,Book 14,J.R.R. Tolkien,Mystery,2015,17
+15,Book 15,Ernest Hemingway,Children's,2012,6
+16,Book 16,J.R.R. Tolkien,Mystery,2023,7
+17,Book 17,Mark Twain,Children's,1981,1
+18,Book 18,Ernest Hemingway,Fantasy,1955,9
+19,Book 19,Agatha Christie,Children's,1964,2
+20,Book 20,J.R.R. Tolkien,History,1961,12
+21,Book 21,J.K. Rowling,Science Fiction,1990,16
+22,Book 22,J.K. Rowling,Philosophy,1988,5
+23,Book 23,Stephen King,Science Fiction,1964,1
+24,Book 24,George Orwell,Children's,1997,14
+25,Book 25,J.R.R. Tolkien,Fantasy,2010,4
+26,Book 26,J.R.R. Tolkien,Philosophy,1967,5
+27,Book 27,Isaac Asimov,Fantasy,1981,9
+28,Book 28,Mark Twain,History,1952,9
+29,Book 29,Mark Twain,Philosophy,1988,16
+30,Book 30,J.R.R. Tolkien,Science Fiction,1994,9
+31,Book 31,Ernest Hemingway,Philosophy,1957,20
+32,Book 32,Isaac Asimov,Philosophy,1956,16
+33,Book 33,J.R.R. Tolkien,Fantasy,2008,2
+34,Book 34,Mark Twain,Philosophy,1971,8
+35,Book 35,Leo Tolstoy,Fantasy,1987,1
+36,Book 36,J.R.R. Tolkien,History,2023,15
+37,Book 37,Agatha Christie,Philosophy,2011,12
+38,Book 38,Isaac Asimov,Mystery,1966,12
+39,Book 39,Mark Twain,Mystery,1975,19
+40,Book 40,Mark Twain,Mystery,2021,13
+41,Book 41,J.K. Rowling,Children's,1988,10
+42,Book 42,J.R.R. Tolkien,Science Fiction,1953,14
+43,Book 43,J.K. Rowling,Philosophy,1971,0
+44,Book 44,Stephen King,Science Fiction,1996,3
+45,Book 45,Ernest Hemingway,Philosophy,2018,18
+46,Book 46,Stephen King,Fantasy,1996,12
+47,Book 47,Stephen King,Children's,1994,7
+48,Book 48,J.R.R. Tolkien,History,1995,9
+49,Book 49,J.R.R. Tolkien,Children's,2017,2
+50,Book 50,J.R.R. Tolkien,Philosophy,1987,16

@@ -1,0 +1,4 @@
+id,source_type,records_collected,status,error_message,timestamp
+1,database,50,success,,2026-03-07 20:15:02
+2,api,6,success,,2026-03-07 20:15:03
+3,web,122,success,,2026-03-07 20:15:09

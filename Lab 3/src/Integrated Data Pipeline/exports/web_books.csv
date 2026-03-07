@@ -1,0 +1,123 @@
+id,title,price,rating,in_stock,category,scraped_at
+1,The Book of Basketball: The NBA According to The Sports Guy,44.84,5,1,Sports_And_Games,2026-03-07 22:15:04.014166
+2,"Friday Night Lights: A Town, a Team, and a Dream",51.22,3,1,Sports_And_Games,2026-03-07 22:15:04.017640
+3,Sugar Rush (Offensive Line #2),24.42,1,1,Sports_And_Games,2026-03-07 22:15:04.018073
+4,Settling the Score (The Summer Games #1),44.91,2,1,Sports_And_Games,2026-03-07 22:15:04.018541
+5,Icing (Aces Hockey #2),40.44,4,1,Sports_And_Games,2026-03-07 22:15:04.018866
+6,It's Only the Himalayas,45.17,2,1,Travel,2026-03-07 22:15:04.648408
+7,Full Moon over Noahâs Ark: An Odyssey to Mount Ararat and Beyond,49.43,4,1,Travel,2026-03-07 22:15:04.651926
+8,See America: A Celebration of Our National Parks & Treasured Sites,48.87,3,1,Travel,2026-03-07 22:15:04.652312
+9,Vagabonding: An Uncommon Guide to the Art of Long-Term World Travel,36.94,2,1,Travel,2026-03-07 22:15:04.652594
+10,Under the Tuscan Sun,37.33,3,1,Travel,2026-03-07 22:15:04.652897
+11,A Summer In Europe,44.34,2,1,Travel,2026-03-07 22:15:04.653225
+12,The Great Railway Bazaar,30.54,1,1,Travel,2026-03-07 22:15:04.653528
+13,A Year in Provence (Provence #1),56.88,4,1,Travel,2026-03-07 22:15:04.653793
+14,The Road to Little Dribbling: Adventures of an American in Britain (Notes From a Small Island #2),23.21,1,1,Travel,2026-03-07 22:15:04.654053
+15,Neither Here nor There: Travels in Europe,38.95,3,1,Travel,2026-03-07 22:15:04.654326
+16,"1,000 Places to See Before You Die",26.08,5,1,Travel,2026-03-07 22:15:04.654657
+17,Sharp Objects,47.82,4,1,Mystery,2026-03-07 22:15:05.270345
+18,"In a Dark, Dark Wood",19.63,1,1,Mystery,2026-03-07 22:15:05.273254
+19,The Past Never Ends,56.5,4,1,Mystery,2026-03-07 22:15:05.273631
+20,A Murder in Time,16.64,1,1,Mystery,2026-03-07 22:15:05.273949
+21,The Murder of Roger Ackroyd (Hercule Poirot #4),44.1,4,1,Mystery,2026-03-07 22:15:05.274286
+22,The Last Mile (Amos Decker #2),54.21,2,1,Mystery,2026-03-07 22:15:05.274629
+23,That Darkness (Gardiner and Renner #1),13.92,1,1,Mystery,2026-03-07 22:15:05.274960
+24,Tastes Like Fear (DI Marnie Rome #3),10.69,1,1,Mystery,2026-03-07 22:15:05.275267
+25,A Time of Torment (Charlie Parker #14),48.35,5,1,Mystery,2026-03-07 22:15:05.275577
+26,A Study in Scarlet (Sherlock Holmes #1),16.73,2,1,Mystery,2026-03-07 22:15:05.275940
+27,Poisonous (Max Revere Novels #3),26.8,3,1,Mystery,2026-03-07 22:15:05.276305
+28,Murder at the 42nd Street Library (Raymond Ambler #1),54.36,4,1,Mystery,2026-03-07 22:15:05.276633
+29,Most Wanted,35.28,3,1,Mystery,2026-03-07 22:15:05.276924
+30,Hide Away (Eve Duncan #20),11.84,1,1,Mystery,2026-03-07 22:15:05.277238
+31,Boar Island (Anna Pigeon #19),59.48,3,1,Mystery,2026-03-07 22:15:05.277543
+32,The Widow,27.26,2,1,Mystery,2026-03-07 22:15:05.277852
+33,Playing with Fire,13.71,3,1,Mystery,2026-03-07 22:15:05.278160
+34,What Happened on Beale Street (Secrets of the South Mysteries #2),25.37,5,1,Mystery,2026-03-07 22:15:05.278483
+35,The Bachelor Girl's Guide to Murder (Herringford and Watts Mysteries #1),52.3,5,1,Mystery,2026-03-07 22:15:05.278803
+36,Delivering the Truth (Quaker Midwife Mystery #1),20.89,4,1,Mystery,2026-03-07 22:15:05.279122
+37,The Mysterious Affair at Styles (Hercule Poirot #1),24.8,4,1,Mystery,2026-03-07 22:15:05.912987
+38,In the Woods (Dublin Murder Squad #1),38.38,2,1,Mystery,2026-03-07 22:15:05.916121
+39,The Silkworm (Cormoran Strike #2),23.05,5,1,Mystery,2026-03-07 22:15:05.916487
+40,The Exiled,43.45,3,1,Mystery,2026-03-07 22:15:05.916804
+41,The Cuckoo's Calling (Cormoran Strike #1),19.21,1,1,Mystery,2026-03-07 22:15:05.917089
+42,Extreme Prey (Lucas Davenport #26),25.4,3,1,Mystery,2026-03-07 22:15:05.917435
+43,Career of Evil (Cormoran Strike #3),24.72,2,1,Mystery,2026-03-07 22:15:05.917833
+44,The No. 1 Ladies' Detective Agency (No. 1 Ladies' Detective Agency #1),57.7,4,1,Mystery,2026-03-07 22:15:05.918173
+45,The Girl You Lost,12.29,5,1,Mystery,2026-03-07 22:15:05.918457
+46,The Girl In The Ice (DCI Erika Foster #1),15.85,3,1,Mystery,2026-03-07 22:15:05.918884
+47,Blood Defense (Samantha Brinkman #1),20.3,3,1,Mystery,2026-03-07 22:15:05.919338
+48,1st to Die (Women's Murder Club #1),53.98,1,1,Mystery,2026-03-07 22:15:05.919722
+49,Mesaerion: The Best Science Fiction Stories 1800-1849,37.59,1,1,Science_Fiction,2026-03-07 22:15:06.549807
+50,Join,35.67,5,1,Science_Fiction,2026-03-07 22:15:06.552956
+51,"William Shakespeare's Star Wars: Verily, A New Hope (William Shakespeare's Star Wars #4)",43.3,4,1,Science_Fiction,2026-03-07 22:15:06.553387
+52,The Project,10.65,1,1,Science_Fiction,2026-03-07 22:15:06.553781
+53,Soft Apocalypse,26.12,2,1,Science_Fiction,2026-03-07 22:15:06.554193
+54,Sleeping Giants (Themis Files #1),48.74,1,1,Science_Fiction,2026-03-07 22:15:06.554520
+55,Arena,21.36,4,1,Science_Fiction,2026-03-07 22:15:06.554900
+56,Foundation (Foundation (Publication Order) #1),32.42,1,1,Science_Fiction,2026-03-07 22:15:06.555219
+57,The Restaurant at the End of the Universe (Hitchhiker's Guide to the Galaxy #2),10.92,1,1,Science_Fiction,2026-03-07 22:15:06.555594
+58,Ready Player One,19.07,4,1,Science_Fiction,2026-03-07 22:15:06.556156
+59,"Life, the Universe and Everything (Hitchhiker's Guide to the Galaxy #3)",33.26,2,1,Science_Fiction,2026-03-07 22:15:06.556692
+60,Dune (Dune #1),54.86,1,1,Science_Fiction,2026-03-07 22:15:06.557097
+61,Do Androids Dream of Electric Sheep? (Blade Runner #1),51.48,1,1,Science_Fiction,2026-03-07 22:15:06.557433
+62,Three Wishes (River of Time: California #1),44.18,2,1,Science_Fiction,2026-03-07 22:15:06.557759
+63,The Last Girl (The Dominion Trilogy #1),36.26,2,1,Science_Fiction,2026-03-07 22:15:06.558089
+64,Having the Barbarian's Baby (Ice Planet Barbarians #7.5),34.96,4,1,Science_Fiction,2026-03-07 22:15:06.558427
+65,Sapiens: A Brief History of Humankind,54.23,5,1,History,2026-03-07 22:15:07.226985
+66,"Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink",25.52,1,1,History,2026-03-07 22:15:07.230247
+67,The Age of Genius: The Seventeenth Century and the Birth of the Modern Mind,19.73,1,1,History,2026-03-07 22:15:07.230600
+68,"Political Suicide: Missteps, Peccadilloes, Bad Calls, Backroom Hijinx, Sordid Pasts, Rotten Breaks, and Just Plain Dumb Mistakes in the Annals of American Politics",36.28,2,1,History,2026-03-07 22:15:07.230895
+69,Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History,59.64,1,1,History,2026-03-07 22:15:07.231239
+70,Zealot: The Life and Times of Jesus of Nazareth,24.7,3,1,History,2026-03-07 22:15:07.231922
+71,A Distant Mirror: The Calamitous 14th Century,14.58,3,1,History,2026-03-07 22:15:07.232585
+72,1491: New Revelations of the Americas Before Columbus,21.8,3,1,History,2026-03-07 22:15:07.232921
+73,Brilliant Beacons: A History of the American Lighthouse,11.45,3,1,History,2026-03-07 22:15:07.233247
+74,"""Most Blessed of the Patriarchs"": Thomas Jefferson and the Empire of the Imagination",44.48,5,1,History,2026-03-07 22:15:07.233563
+75,A Short History of Nearly Everything,52.4,5,1,History,2026-03-07 22:15:07.234783
+76,The Rise and Fall of the Third Reich: A History of Nazi Germany,39.67,2,1,History,2026-03-07 22:15:07.235080
+77,Catherine the Great: Portrait of a Woman,58.55,4,1,History,2026-03-07 22:15:07.235347
+78,The Mathews Men: Seven Brothers and the War Against Hitler's U-boats,42.91,5,1,History,2026-03-07 22:15:07.235620
+79,The Hiding Place,55.91,4,1,History,2026-03-07 22:15:07.235877
+80,America's War for the Greater Middle East: A Military History,51.22,2,1,History,2026-03-07 22:15:07.236133
+81,The Guns of August,14.54,2,1,History,2026-03-07 22:15:07.236389
+82,"House of Lost Worlds: Dinosaurs, Dynasties, and the Story of Life on Earth",43.7,2,1,History,2026-03-07 22:15:07.236644
+83,Birdsong: A Story in Pictures,54.64,3,1,Childrens,2026-03-07 22:15:07.881031
+84,The Bear and the Piano,36.89,1,1,Childrens,2026-03-07 22:15:07.884201
+85,The Secret of Dreadwillow Carse,56.13,1,1,Childrens,2026-03-07 22:15:07.884601
+86,The White Cat and the Monk: A Retelling of the Poem âPangur BÃ¡nâ,58.08,4,1,Childrens,2026-03-07 22:15:07.884878
+87,Little Red,13.47,3,1,Childrens,2026-03-07 22:15:07.885166
+88,Walt Disney's Alice in Wonderland,12.96,5,1,Childrens,2026-03-07 22:15:07.885453
+89,Twenty Yawns,22.08,2,1,Childrens,2026-03-07 22:15:07.885748
+90,Rain Fish,23.57,3,1,Childrens,2026-03-07 22:15:07.886033
+91,Once Was a Time,18.28,2,1,Childrens,2026-03-07 22:15:07.886292
+92,Luis Paints the World,53.95,3,1,Childrens,2026-03-07 22:15:07.886551
+93,Nap-a-Roo,25.08,1,1,Childrens,2026-03-07 22:15:07.886928
+94,The Whale,35.96,4,1,Childrens,2026-03-07 22:15:07.887309
+95,"Shrunken Treasures: Literary Classics, Short, Sweet, and Silly",52.87,3,1,Childrens,2026-03-07 22:15:07.887633
+96,Raymie Nightingale,34.41,2,1,Childrens,2026-03-07 22:15:07.887897
+97,Playing from the Heart,32.38,1,1,Childrens,2026-03-07 22:15:07.888157
+98,Maybe Something Beautiful: How Art Transformed a Neighborhood,22.54,1,1,Childrens,2026-03-07 22:15:07.888771
+99,The Wild Robot,56.07,3,1,Childrens,2026-03-07 22:15:07.889039
+100,The Thing About Jellyfish,48.77,1,1,Childrens,2026-03-07 22:15:07.889305
+101,The Lonely Ones,43.59,5,1,Childrens,2026-03-07 22:15:07.889562
+102,The Day the Crayons Came Home (Crayons),26.33,5,1,Childrens,2026-03-07 22:15:07.889821
+103,The Cat in the Hat (Beginner Books B-1),16.26,2,1,Childrens,2026-03-07 22:15:08.379342
+104,Red: The True Story of Red Riding Hood,28.54,3,1,Childrens,2026-03-07 22:15:08.382435
+105,Horrible Bear!,37.52,2,1,Childrens,2026-03-07 22:15:08.382924
+106,Green Eggs and Ham (Beginner Books B-16),10.79,4,1,Childrens,2026-03-07 22:15:08.383264
+107,Counting Thyme,10.62,1,1,Childrens,2026-03-07 22:15:08.383540
+108,Are We There Yet?,10.66,3,1,Childrens,2026-03-07 22:15:08.383817
+109,Diary of a Minecraft Zombie Book 1: A Scare of a Dare (An Unofficial Minecraft Book),52.88,4,1,Childrens,2026-03-07 22:15:08.384099
+110,Matilda,28.34,1,1,Childrens,2026-03-07 22:15:08.384373
+111,Charlie and the Chocolate Factory (Charlie Bucket #1),22.85,3,1,Childrens,2026-03-07 22:15:08.384682
+112,Sophie's World,15.94,5,1,Philosophy,2026-03-07 22:15:09.007850
+113,The Death of Humanity: and the Case for Life,58.11,4,1,Philosophy,2026-03-07 22:15:09.009423
+114,The Stranger,17.44,4,1,Philosophy,2026-03-07 22:15:09.009758
+115,Proofs of God: Classical Arguments from Tertullian to Barth,54.21,1,1,Philosophy,2026-03-07 22:15:09.010041
+116,Kierkegaard: A Christian Missionary to Christians,47.13,1,1,Philosophy,2026-03-07 22:15:09.010413
+117,"At The Existentialist CafÃ©: Freedom, Being, and apricot cocktails with: Jean-Paul Sartre, Simone de Beauvoir, Albert Camus, Martin Heidegger, Edmund Husserl, Karl Jaspers, Maurice Merleau-Ponty and others",29.93,5,1,Philosophy,2026-03-07 22:15:09.010769
+118,Critique of Pure Reason,20.75,1,1,Philosophy,2026-03-07 22:15:09.011058
+119,"Run, Spot, Run: The Ethics of Keeping Pets",20.02,1,1,Philosophy,2026-03-07 22:15:09.011347
+120,The Nicomachean Ethics,36.34,1,1,Philosophy,2026-03-07 22:15:09.011607
+121,Meditations,25.89,2,1,Philosophy,2026-03-07 22:15:09.011889
+122,Beyond Good and Evil,43.38,1,1,Philosophy,2026-03-07 22:15:09.012225
