@@ -1,0 +1,152 @@
+id,source_type,records_collected,status,error_message,timestamp
+1,database,0,error,"Execution failed on sql '
+                SELECT  b.book_id,
+                        b.title,
+                        b.genre,
+                        b.publication_year,
+                        b.copies_available,
+                        a.author_name AS author
+                FROM books b
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                ': no such table: books",2026-03-07 09:48:50
+2,api,0,success,,2026-03-07 09:48:50
+3,database,0,error,"Execution failed on sql '
+                SELECT  b.book_id,
+                        b.title,
+                        b.genre,
+                        b.publication_year,
+                        b.copies_available,
+                        a.author_name AS author
+                FROM books b
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                ': no such table: books",2026-03-07 09:51:24
+4,api,0,success,,2026-03-07 09:51:25
+5,database,0,error,"Execution failed on sql '
+                SELECT  b.book_id,
+                        b.title,
+                        b.genre,
+                        b.publication_year,
+                        b.copies_available,
+                        a.author_name AS author
+                FROM books b
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                ': no such table: books",2026-03-07 09:52:27
+6,api,0,success,,2026-03-07 09:52:27
+7,database,0,error,"Execution failed on sql '
+                SELECT  b.book_id,
+                        b.title,
+                        b.genre,
+                        b.publication_year,
+                        b.copies_available,
+                        a.author_name AS author
+                FROM books b
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                ': no such table: books",2026-03-07 09:53:36
+8,api,0,success,,2026-03-07 09:53:37
+9,database,0,error,"Execution failed on sql '
+                SELECT  b.book_id,
+                        b.title,
+                        b.genre,
+                        b.publication_year,
+                        b.copies_available,
+                        a.author_name AS author
+                FROM books b
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                ': no such table: books",2026-03-07 09:55:46
+10,api,0,success,,2026-03-07 09:55:47
+11,web,122,success,,2026-03-07 09:55:54
+12,database,0,error,"Execution failed on sql '
+                SELECT  b.book_id,
+                        b.title,
+                        b.genre,
+                        b.publication_year,
+                        b.copies_available,
+                        a.author_name AS author
+                FROM books b
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                ': no such table: books",2026-03-07 09:56:33
+13,api,0,success,,2026-03-07 09:56:33
+14,web,122,success,,2026-03-07 09:56:40
+15,database,50,success,,2026-03-07 09:58:21
+16,api,0,success,,2026-03-07 09:58:21
+17,web,122,success,,2026-03-07 09:58:28
+18,database,0,error,UNIQUE constraint failed: library_books.book_id,2026-03-07 09:59:49
+19,api,0,success,,2026-03-07 09:59:49
+20,database,0,error,UNIQUE constraint failed: library_books.book_id,2026-03-07 10:02:36
+21,api,0,success,,2026-03-07 10:02:36
+22,database,50,success,,2026-03-07 10:03:25
+23,api,0,success,,2026-03-07 10:03:26
+24,web,122,success,,2026-03-07 10:03:31
+25,database,50,success,,2026-03-07 10:04:39
+26,api,0,success,,2026-03-07 10:04:39
+27,web,122,success,,2026-03-07 10:04:45
+28,database,50,success,,2026-03-07 10:05:36
+29,api,0,success,,2026-03-07 10:05:37
+30,web,122,success,,2026-03-07 10:05:42
+31,database,50,success,,2026-03-07 10:07:24
+32,api,0,success,,2026-03-07 10:07:25
+33,web,122,success,,2026-03-07 10:07:31
+34,database,50,success,,2026-03-07 10:09:43
+35,api,0,success,,2026-03-07 10:09:43
+36,web,122,success,,2026-03-07 10:09:49
+37,database,50,success,,2026-03-07 10:11:45
+38,api,0,success,,2026-03-07 10:11:45
+39,web,122,success,,2026-03-07 10:11:51
+40,database,50,success,,2026-03-07 10:14:39
+41,api,0,success,,2026-03-07 10:14:40
+42,database,50,success,,2026-03-07 10:20:17
+43,api,0,success,,2026-03-07 10:20:18
+44,database,50,success,,2026-03-07 10:20:53
+45,api,6,success,,2026-03-07 10:20:53
+46,web,122,success,,2026-03-07 10:20:59
+47,database,50,success,,2026-03-07 10:22:23
+48,api,6,success,,2026-03-07 10:22:24
+49,web,122,success,,2026-03-07 10:22:30
+50,database,50,success,,2026-03-07 10:29:07
+51,api,6,success,,2026-03-07 10:29:07
+52,web,122,success,,2026-03-07 10:29:13
+53,database,50,success,,2026-03-07 10:34:38
+54,api,6,success,,2026-03-07 10:34:39
+55,web,122,success,,2026-03-07 10:34:45
+56,database,50,success,,2026-03-07 10:37:23
+57,api,6,success,,2026-03-07 10:37:23
+58,web,122,success,,2026-03-07 10:37:29
+59,database,50,success,,2026-03-07 10:38:40
+60,api,6,success,,2026-03-07 10:38:41
+61,web,122,success,,2026-03-07 10:38:46
+62,database,50,success,,2026-03-07 10:39:16
+63,api,6,success,,2026-03-07 10:39:16
+64,web,122,success,,2026-03-07 10:39:22
+65,database,50,success,,2026-03-07 10:43:00
+66,api,6,success,,2026-03-07 10:43:01
+67,web,122,success,,2026-03-07 10:43:07
+68,database,50,success,,2026-03-07 10:45:51
+69,api,6,success,,2026-03-07 10:45:51
+70,web,122,success,,2026-03-07 10:45:57
+71,database,50,success,,2026-03-07 10:46:09
+72,api,6,success,,2026-03-07 10:46:09
+73,web,122,success,,2026-03-07 10:46:15
+74,database,50,success,,2026-03-07 12:48:32
+75,api,6,success,,2026-03-07 12:48:32
+76,web,122,success,,2026-03-07 12:48:38
+77,database,50,success,,2026-03-07 13:00:11
+78,api,6,success,,2026-03-07 13:00:11
+79,web,122,success,,2026-03-07 13:00:17
+80,database,50,success,,2026-03-07 13:09:28
+81,api,6,success,,2026-03-07 13:09:29
+82,web,122,success,,2026-03-07 13:09:34
+83,database,50,success,,2026-03-07 13:20:41
+84,api,6,success,,2026-03-07 13:20:41
+85,web,122,success,,2026-03-07 13:20:47
+86,database,50,success,,2026-03-07 13:21:41
+87,api,6,success,,2026-03-07 13:21:41
+88,web,122,success,,2026-03-07 13:21:47
+89,database,50,success,,2026-03-07 13:33:53
+90,api,6,success,,2026-03-07 13:33:54
+91,web,122,success,,2026-03-07 13:34:00
+92,database,50,success,,2026-03-07 13:37:22
+93,api,6,success,,2026-03-07 13:37:23
+94,web,122,success,,2026-03-07 13:37:28
+95,database,50,success,,2026-03-07 13:37:43
+96,api,6,success,,2026-03-07 13:37:43
+97,web,122,success,,2026-03-07 13:37:49

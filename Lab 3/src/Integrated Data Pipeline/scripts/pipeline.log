@@ -1,0 +1,63 @@
+2026-03-07 15:33:53,499 - INFO - Pipeline initialised � DB: market_intelligence.db
+2026-03-07 15:33:53,500 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\scripts\library.db
+2026-03-07 15:33:53,519 - INFO - Collected 50 valid records from database
+2026-03-07 15:33:53,519 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-07 15:33:54,035 - INFO - Collected 6 valid records from API
+2026-03-07 15:33:54,036 - INFO - Collecting from web: categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-07 15:33:54,736 - INFO - Collected 5 books from http://books.toscrape.com/catalogue/category/books/sports-and-games_17/index.html
+2026-03-07 15:33:55,425 - INFO - Collected 11 books from http://books.toscrape.com/catalogue/category/books/travel_2/index.html
+2026-03-07 15:33:56,127 - INFO - Collected 20 books from http://books.toscrape.com/catalogue/category/books/mystery_3/index.html
+2026-03-07 15:33:56,775 - INFO - Collected 12 books from http://books.toscrape.com/catalogue/category/books/mystery_3/page-2.html
+2026-03-07 15:33:57,418 - INFO - Collected 16 books from http://books.toscrape.com/catalogue/category/books/science-fiction_16/index.html
+2026-03-07 15:33:58,117 - INFO - Collected 18 books from http://books.toscrape.com/catalogue/category/books/history_32/index.html
+2026-03-07 15:33:58,790 - INFO - Collected 20 books from http://books.toscrape.com/catalogue/category/books/childrens_11/index.html
+2026-03-07 15:33:59,344 - INFO - Collected 9 books from http://books.toscrape.com/catalogue/category/books/childrens_11/page-2.html
+2026-03-07 15:34:00,033 - INFO - Collected 11 books from http://books.toscrape.com/catalogue/category/books/philosophy_7/index.html
+2026-03-07 15:34:00,047 - INFO - Total collected from web: 122
+2026-03-07 15:34:00,547 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:34:00,551 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:34:00,651 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:34:00,657 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:34:02,808 - INFO - All data exported to exports/
+2026-03-07 15:37:22,401 - INFO - Pipeline initialised � DB: market_intelligence.db
+2026-03-07 15:37:22,402 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\scripts\library.db
+2026-03-07 15:37:22,421 - INFO - Collected 50 valid records from database
+2026-03-07 15:37:22,421 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-07 15:37:23,034 - INFO - Collected 6 valid records from API
+2026-03-07 15:37:23,035 - INFO - Collecting from web: categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-07 15:37:23,809 - INFO - Collected 5 books from http://books.toscrape.com/catalogue/category/books/sports-and-games_17/index.html
+2026-03-07 15:37:24,282 - INFO - Collected 11 books from http://books.toscrape.com/catalogue/category/books/travel_2/index.html
+2026-03-07 15:37:24,760 - INFO - Collected 20 books from http://books.toscrape.com/catalogue/category/books/mystery_3/index.html
+2026-03-07 15:37:25,233 - INFO - Collected 12 books from http://books.toscrape.com/catalogue/category/books/mystery_3/page-2.html
+2026-03-07 15:37:25,714 - INFO - Collected 16 books from http://books.toscrape.com/catalogue/category/books/science-fiction_16/index.html
+2026-03-07 15:37:26,336 - INFO - Collected 18 books from http://books.toscrape.com/catalogue/category/books/history_32/index.html
+2026-03-07 15:37:26,973 - INFO - Collected 20 books from http://books.toscrape.com/catalogue/category/books/childrens_11/index.html
+2026-03-07 15:37:27,454 - INFO - Collected 9 books from http://books.toscrape.com/catalogue/category/books/childrens_11/page-2.html
+2026-03-07 15:37:28,088 - INFO - Collected 11 books from http://books.toscrape.com/catalogue/category/books/philosophy_7/index.html
+2026-03-07 15:37:28,099 - INFO - Total collected from web: 122
+2026-03-07 15:37:28,628 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:28,642 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:28,776 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:28,784 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:31,684 - INFO - All data exported to exports/
+2026-03-07 15:37:43,620 - INFO - Pipeline initialised � DB: market_intelligence.db
+2026-03-07 15:37:43,622 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\scripts\library.db
+2026-03-07 15:37:43,639 - INFO - Collected 50 valid records from database
+2026-03-07 15:37:43,640 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-07 15:37:43,923 - INFO - Collected 6 valid records from API
+2026-03-07 15:37:43,924 - INFO - Collecting from web: categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-07 15:37:44,680 - INFO - Collected 5 books from http://books.toscrape.com/catalogue/category/books/sports-and-games_17/index.html
+2026-03-07 15:37:45,380 - INFO - Collected 11 books from http://books.toscrape.com/catalogue/category/books/travel_2/index.html
+2026-03-07 15:37:46,039 - INFO - Collected 20 books from http://books.toscrape.com/catalogue/category/books/mystery_3/index.html
+2026-03-07 15:37:46,673 - INFO - Collected 12 books from http://books.toscrape.com/catalogue/category/books/mystery_3/page-2.html
+2026-03-07 15:37:47,297 - INFO - Collected 16 books from http://books.toscrape.com/catalogue/category/books/science-fiction_16/index.html
+2026-03-07 15:37:47,945 - INFO - Collected 18 books from http://books.toscrape.com/catalogue/category/books/history_32/index.html
+2026-03-07 15:37:48,591 - INFO - Collected 20 books from http://books.toscrape.com/catalogue/category/books/childrens_11/index.html
+2026-03-07 15:37:49,200 - INFO - Collected 9 books from http://books.toscrape.com/catalogue/category/books/childrens_11/page-2.html
+2026-03-07 15:37:49,965 - INFO - Collected 11 books from http://books.toscrape.com/catalogue/category/books/philosophy_7/index.html
+2026-03-07 15:37:49,975 - INFO - Total collected from web: 122
+2026-03-07 15:37:50,399 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:50,404 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:50,501 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:50,507 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-07 15:37:52,094 - INFO - All data exported to exports/
