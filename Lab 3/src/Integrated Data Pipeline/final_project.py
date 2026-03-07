@@ -608,7 +608,7 @@ class BookMarketIntelligence:
         # ---------------- Library Genres ----------------
         if not df_library.empty:
             plt.figure(figsize=(8, 5))
-            ax = sns.countplot(
+            sns.countplot(
                 data=df_library,
                 x="genre",
                 order=df_library["genre"].value_counts().index,
@@ -631,6 +631,25 @@ class BookMarketIntelligence:
 
         # ---------------- Web Price & Rating ----------------
         if not df_web.empty:
+            # Stats
+            stats["web_total"] = len(df_web)
+            stats["price_mean"] = round(float(df_web["price"].mean()), 2)
+            stats["price_median"] = round(float(df_web["price"].median()), 2)
+            stats["rating_mean"] = round(float(df_web["rating"].mean()), 2)
+            stats["rating_counts"] = df_web["rating"].value_counts().to_dict()
+            stats["in_stock_pct"] = round(
+                float(df_web["in_stock"].sum()) / len(df_web) * 100, 1
+            )
+            stats["most_expensive_category"] = (
+                df_web.groupby("category")["price"].mean().idxmax()
+            )
+            stats["cheapest_category"] = (
+                df_web.groupby("category")["price"].mean().idxmin()
+            )
+            stats["highest_rated_category"] = (
+                df_web.groupby("category")["rating"].mean().idxmax()
+            )
+
             # Price distribution
             plt.figure(figsize=(6, 4))
             sns.histplot(df_web["price"].dropna(), bins=20, kde=True, color="#2b6cb0")
@@ -642,8 +661,6 @@ class BookMarketIntelligence:
             plt.savefig(path)
             plt.close()
             plots["price_distribution"] = path
-            stats["price_mean"] = round(df_web["price"].mean(), 2)
-            stats["price_median"] = round(df_web["price"].median(), 2)
 
             # Rating distribution
             plt.figure(figsize=(6, 4))
@@ -661,7 +678,6 @@ class BookMarketIntelligence:
             plt.savefig(path)
             plt.close()
             plots["rating_distribution"] = path
-            stats["rating_counts"] = df_web["rating"].value_counts().to_dict()
 
             # Price vs rating
             plt.figure(figsize=(6, 4))
@@ -674,17 +690,30 @@ class BookMarketIntelligence:
             plt.savefig(path)
             plt.close()
             plots["price_vs_rating"] = path
+
         else:
-            stats.update({"price_mean": 0, "price_median": 0, "rating_counts": {}})
+            stats.update(
+                {
+                    "web_total": 0,
+                    "price_mean": 0,
+                    "price_median": 0,
+                    "rating_mean": 0,
+                    "rating_counts": {},
+                    "in_stock_pct": 0,
+                    "most_expensive_category": "N/A",
+                    "cheapest_category": "N/A",
+                    "highest_rated_category": "N/A",
+                }
+            )
 
         # ---------------- GitHub Languages & Stars/Forks ----------------
         if not df_api.empty:
-            top_langs = (
-                df_api["language"].fillna("Unknown").value_counts().head(10).to_dict()
-            )
+            top_langs = df_api["language"].dropna().value_counts().head(10).to_dict()
             stats["top_languages"] = top_langs
             stats["api_total"] = len(df_api)
-            stats["total_stars"] = int(df_api["stars"].sum())
+            stats["total_stars"] = int(
+                pd.to_numeric(df_api["stars"], errors="coerce").fillna(0).sum()
+            )
 
             # Top languages
             plt.figure(figsize=(7, 4))
@@ -728,11 +757,9 @@ class BookMarketIntelligence:
             plt.savefig(path)
             plt.close()
             plots["stars_vs_forks"] = path
+
         else:
-            stats["top_languages"] = {}
-            stats["api_total"] = 0
-            stats["total_stars"] = 0
-            # Placeholder plots
+            stats.update({"top_languages": {}, "api_total": 0, "total_stars": 0})
             for name in ["top_languages.png", "stars_vs_forks.png"]:
                 plt.figure()
                 plt.text(0.5, 0.5, "No data available", ha="center", va="center")
@@ -873,19 +900,22 @@ class BookMarketIntelligence:
         print("=" * 70)
         print("Starting full data collection pipeline...\n")
 
-        print(f"(1/6) Collecting from database: {library_db} ...")
+        print(f"(1/7) Collecting from database: {library_db} ...")
         self.collect_from_database(library_db)
 
-        print(f"\n(2/6) Collecting from GitHub API (query='{github_query}') ...")
+        print(f"\n(2/7) Collecting from GitHub API (query='{github_query}') ...")
         self.collect_from_api(github_query)
 
-        print("\n(3/6) Collecting from web (max 5 pages/category) ...")
+        print("\n(3/7) Collecting from web (max 5 pages/category) ...")
         self.collect_from_web(max_pages_per_category=5)
 
-        print("\n(5/6) Analysis and generate plots ...")
+        print("\n(5/7) Analysis and generate plots ...")
         stats, plots = self.analyze_and_visualize()
 
-        print("\n(6/6) Exporting all tables to CSV ...")
+        print("\n(6/7) Generating HTML report ...")
+        self.generate_html_report(stats)
+
+        print("\n(7/7) Exporting all tables to CSV ...")
         self.export_all_data()
 
         print("\n" + "=" * 70)

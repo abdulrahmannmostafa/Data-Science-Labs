@@ -71,7 +71,7 @@ If this file is absent, the database collection step logs an error and skips gra
 ## How to Run
 
 ```bash
-cd "Lab 3/Integrated Data Pipeline"
+cd "Lab 3/src/Integrated Data Pipeline"
 python final_project.py
 ```
 
