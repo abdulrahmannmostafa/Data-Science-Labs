@@ -237,7 +237,7 @@ class BookMarketIntelligence:
                     self.logger.error(f"All {retries} attempts failed for {url}")
                     return None
 
-    def _validate_web_book_data(self, book):
+    def _validate_web_book(self, book):
         """Validate scraped book data before insertion into the database"""
 
         if not book.get("title"):
@@ -266,7 +266,7 @@ class BookMarketIntelligence:
             return False
         return True
 
-    def _validate_book_data(self, book):
+    def _validate_library_record(self, book):
         """Validate book data from the library database before insertion"""
 
         if not book.get("title"):
@@ -341,7 +341,9 @@ class BookMarketIntelligence:
 
         try:
             df_valid = df[
-                df.apply(lambda row: self._validate_book_data(row.to_dict()), axis=1)
+                df.apply(
+                    lambda row: self._validate_library_record(row.to_dict()), axis=1
+                )
             ].drop_duplicates(subset="book_id", keep="first")
 
             if not df_valid.empty:
@@ -521,7 +523,7 @@ class BookMarketIntelligence:
                             "scraped_at": datetime.now(),
                         }
 
-                        if self._validate_web_book_data(book_data):
+                        if self._validate_web_book(book_data):
                             cursor.execute(
                                 "INSERT OR IGNORE INTO web_books (title, price, rating, in_stock, category, scraped_at) VALUES (?, ?, ?, ?, ?, ?)",
                                 (
@@ -813,9 +815,6 @@ class BookMarketIntelligence:
         6. Export all tables to CSV
         """
 
-        print("%" * 70)
-        print("  BOOK MARKET INTELLIGENCE SYSTEM")
-        print("%" * 70)
         print("Starting full data collection pipeline\n")
 
         print(f"(1/6) Database gatherings from: {library_db}")
@@ -836,7 +835,7 @@ class BookMarketIntelligence:
         print("\n(6/6) Exporting all tables to CSV format")
         self.export_all_data()
 
-        print("\n" + "=" * 70)
+        print("\n" + "%" * 70)
         print("Pipeline completed successfully!\n")
 
         print("Key Statistics:")
