@@ -121,3 +121,29 @@
 2026-03-08 20:46:40,339 - INFO - Report generated at analysis.html
 2026-03-08 20:46:40,351 - INFO - All data exported to 'exports/'
 2026-03-08 20:46:40,353 - INFO - Database connection closed
+2026-03-08 21:46:40,637 - INFO - Pipeline initialised — DB: market_intelligence.db
+2026-03-08 21:46:40,637 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
+2026-03-08 21:46:40,664 - INFO - Collected 50 valid records from database
+2026-03-08 21:46:40,665 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-08 21:46:41,827 - INFO - Collected 6 valid records from API
+2026-03-08 21:46:41,828 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-08 21:46:42,619 - INFO - 'Sports_And_Games' page 1: 5 books collected
+2026-03-08 21:46:43,258 - INFO - 'Travel' page 1: 11 books collected
+2026-03-08 21:46:43,904 - INFO - 'Mystery' page 1: 20 books collected
+2026-03-08 21:46:44,533 - INFO - 'Mystery' page 2: 12 books collected
+2026-03-08 21:46:45,166 - INFO - 'Science_Fiction' page 1: 16 books collected
+2026-03-08 21:46:45,871 - INFO - 'History' page 1: 18 books collected
+2026-03-08 21:46:46,522 - INFO - 'Childrens' page 1: 20 books collected
+2026-03-08 21:46:47,169 - INFO - 'Childrens' page 2: 9 books collected
+2026-03-08 21:46:47,809 - INFO - 'Philosophy' page 1: 11 books collected
+2026-03-08 21:46:47,818 - INFO - Total web records collected: 122
+2026-03-08 21:46:50,010 - INFO - Report generated at analysis.html
+2026-03-08 21:46:50,040 - INFO - All data exported to 'exports/'
+2026-03-08 21:46:50,042 - INFO - Database connection closed
+2026-03-08 21:48:47,179 - INFO - Pipeline initialised — DB: market_intelligence.db
+2026-03-08 21:48:47,180 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
+2026-03-08 21:48:47,194 - INFO - Collected 50 valid records from database
+2026-03-08 21:48:47,194 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-08 21:48:48,358 - INFO - Collected 6 valid records from API
+2026-03-08 21:48:48,359 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-08 21:48:48,980 - INFO - 'Sports_And_Games' page 1: 5 books collected
