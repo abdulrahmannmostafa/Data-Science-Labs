@@ -1,51 +1,51 @@
 book_id,title,author,genre,publication_year,copies_available
-1,Book 1,Ernest Hemingway,Mystery,1986,20
-2,Book 2,Agatha Christie,Science Fiction,1960,2
-3,Book 3,Stephen King,History,1990,10
-4,Book 4,Ernest Hemingway,Children's,1968,17
-5,Book 5,George Orwell,History,2023,6
-6,Book 6,Leo Tolstoy,Fantasy,2003,20
-7,Book 7,Agatha Christie,Mystery,1956,6
-8,Book 8,J.K. Rowling,Children's,2006,10
-9,Book 9,Agatha Christie,Mystery,1969,3
-10,Book 10,Isaac Asimov,Philosophy,1974,12
-11,Book 11,Leo Tolstoy,Mystery,2023,17
-12,Book 12,J.K. Rowling,Science Fiction,2012,4
-13,Book 13,Stephen King,Children's,1956,3
-14,Book 14,Agatha Christie,Science Fiction,1969,4
-15,Book 15,Isaac Asimov,History,1973,16
-16,Book 16,J.R.R. Tolkien,Children's,1990,16
-17,Book 17,Isaac Asimov,Fantasy,1957,17
-18,Book 18,Leo Tolstoy,Science Fiction,2009,6
-19,Book 19,Agatha Christie,Philosophy,2002,8
-20,Book 20,Stephen King,Fantasy,1950,11
-21,Book 21,Stephen King,Science Fiction,1970,10
-22,Book 22,Leo Tolstoy,Philosophy,1986,9
-23,Book 23,Mark Twain,Mystery,1986,10
-24,Book 24,Stephen King,Science Fiction,2023,19
-25,Book 25,J.K. Rowling,Fantasy,2012,11
-26,Book 26,Isaac Asimov,Philosophy,1997,11
-27,Book 27,Agatha Christie,Mystery,1983,9
-28,Book 28,George Orwell,Fantasy,2020,2
-29,Book 29,Isaac Asimov,Fantasy,2019,18
-30,Book 30,Ernest Hemingway,History,2023,3
-31,Book 31,Mark Twain,Science Fiction,1978,11
-32,Book 32,Mark Twain,Fantasy,2001,6
-33,Book 33,Leo Tolstoy,Philosophy,1973,16
-34,Book 34,Leo Tolstoy,History,1956,15
-35,Book 35,Agatha Christie,History,2002,5
-36,Book 36,Isaac Asimov,Philosophy,1971,7
-37,Book 37,J.K. Rowling,Fantasy,1997,15
-38,Book 38,Ernest Hemingway,Mystery,1975,15
-39,Book 39,J.R.R. Tolkien,Mystery,1968,2
-40,Book 40,Leo Tolstoy,Mystery,1970,8
-41,Book 41,George Orwell,History,1992,20
-42,Book 42,Mark Twain,History,1974,15
-43,Book 43,Stephen King,Philosophy,1971,2
-44,Book 44,Leo Tolstoy,Science Fiction,1991,1
-45,Book 45,George Orwell,Fantasy,1951,2
-46,Book 46,Stephen King,Philosophy,1956,13
-47,Book 47,Ernest Hemingway,Mystery,1985,17
-48,Book 48,J.R.R. Tolkien,Children's,1982,5
-49,Book 49,Ernest Hemingway,Science Fiction,1969,15
-50,Book 50,George Orwell,Fantasy,1993,5
+1,Book 1,Stephen King,Children's,2020,13
+2,Book 2,Mark Twain,Mystery,1979,3
+3,Book 3,Stephen King,History,1957,2
+4,Book 4,Ernest Hemingway,History,2019,11
+5,Book 5,Mark Twain,Fantasy,1980,8
+6,Book 6,Leo Tolstoy,Mystery,1970,2
+7,Book 7,J.R.R. Tolkien,Fantasy,1978,0
+8,Book 8,Leo Tolstoy,Mystery,2021,18
+9,Book 9,J.R.R. Tolkien,Mystery,1969,6
+10,Book 10,Isaac Asimov,Fantasy,1972,1
+11,Book 11,J.R.R. Tolkien,Mystery,2015,20
+12,Book 12,Stephen King,Science Fiction,2011,11
+13,Book 13,Ernest Hemingway,Fantasy,1962,17
+14,Book 14,J.R.R. Tolkien,Children's,1992,14
+15,Book 15,Mark Twain,Mystery,1982,12
+16,Book 16,J.K. Rowling,Philosophy,1960,14
+17,Book 17,Isaac Asimov,History,1995,3
+18,Book 18,George Orwell,Philosophy,2019,10
+19,Book 19,J.R.R. Tolkien,Science Fiction,1990,8
+20,Book 20,Mark Twain,Children's,2017,6
+21,Book 21,Ernest Hemingway,Science Fiction,2005,16
+22,Book 22,Leo Tolstoy,Science Fiction,2022,17
+23,Book 23,J.R.R. Tolkien,Mystery,2005,3
+24,Book 24,Stephen King,Fantasy,1977,10
+25,Book 25,Leo Tolstoy,Fantasy,1954,10
+26,Book 26,Mark Twain,Science Fiction,1973,18
+27,Book 27,Agatha Christie,Fantasy,1956,8
+28,Book 28,J.K. Rowling,Science Fiction,1991,16
+29,Book 29,Mark Twain,Fantasy,2008,2
+30,Book 30,Isaac Asimov,History,1967,10
+31,Book 31,Agatha Christie,History,1966,10
+32,Book 32,Ernest Hemingway,Philosophy,1953,15
+33,Book 33,Isaac Asimov,History,2005,1
+34,Book 34,Mark Twain,Mystery,1986,17
+35,Book 35,Ernest Hemingway,Children's,1981,3
+36,Book 36,Agatha Christie,Mystery,1959,16
+37,Book 37,Ernest Hemingway,Children's,1976,16
+38,Book 38,Agatha Christie,Children's,1972,19
+39,Book 39,Stephen King,Fantasy,1996,16
+40,Book 40,Stephen King,History,1967,3
+41,Book 41,Ernest Hemingway,Fantasy,2021,19
+42,Book 42,Leo Tolstoy,Mystery,2005,8
+43,Book 43,J.K. Rowling,Children's,1993,2
+44,Book 44,Stephen King,Children's,1951,2
+45,Book 45,J.R.R. Tolkien,History,1954,13
+46,Book 46,Agatha Christie,Philosophy,1970,4
+47,Book 47,Ernest Hemingway,Science Fiction,2015,8
+48,Book 48,Stephen King,History,2004,13
+49,Book 49,Leo Tolstoy,Mystery,2010,10
+50,Book 50,Isaac Asimov,Children's,2011,12

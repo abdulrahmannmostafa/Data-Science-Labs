@@ -1,71 +1,56 @@
-"""
-Book Market Intelligence Pipeline
-==================================
-Collects, validates, and analyses book-related data from three sources:
-
-    1. Local SQLite library database  (library.db)
-    2. GitHub repository search API
-    3. Books to Scrape website         (http://books.toscrape.com)
-
-Outputs
--------
-    market_intelligence.db  -- structured SQLite database
-    analysis.html           -- interactive HTML dashboard report
-    exports/                -- CSV export of every table
-    pipeline.log            -- full audit log
-"""
-
+import os
+import time
 import sqlite3
 import logging
-import time
-import os
 import requests
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
+from string import Template
+from collections import deque
+from bs4 import BeautifulSoup
 from datetime import datetime
 from urllib.parse import urljoin, urlparse
-from bs4 import BeautifulSoup
-from collections import deque
+from urllib.robotparser import RobotFileParser
+
+
+CATEGORY_TAGS = {
+    "Sports_And_Games": "sports-and-games_17",
+    "Travel": "travel_2",
+    "Mystery": "mystery_3",
+    "Science_Fiction": "science-fiction_16",
+    "History": "history_32",
+    "Childrens": "childrens_11",
+    "Philosophy": "philosophy_7",
+}
+
+RATING_MAP = {
+    "One": 1,
+    "Two": 2,
+    "Three": 3,
+    "Four": 4,
+    "Five": 5,
+}
+
+STATUS_SUCCESS = "success"
+STATUS_ERROR = "error"
 
 
 class BookMarketIntelligence:
     """
     End-to-end data-collection and analysis pipeline for the book market.
 
-    Collects from a local library database, the GitHub search API, and
-    books.toscrape.com; validates and stores every record; then produces
-    a self-contained interactive HTML dashboard report.
+    - Collects from a local library database, the GitHub search API, and books.toscrape.com
+    - Validates and stores every record
+    - Produces an interactive HTML dashboard report
     """
 
-    CATEGORY_TAGS = {
-        "Sports_And_Games": "sports-and-games_17",
-        "Travel": "travel_2",
-        "Mystery": "mystery_3",
-        "Science_Fiction": "science-fiction_16",
-        "History": "history_32",
-        "Childrens": "childrens_11",
-        "Philosophy": "philosophy_7",
-    }
-
-    RATING_MAP = {
-        "One": 1,
-        "Two": 2,
-        "Three": 3,
-        "Four": 4,
-        "Five": 5,
-    }
-
-    STATUS_SUCCESS = "success"
-    STATUS_ERROR = "error"
-
-    # ------------------------------------------------------------------
-    # Initialisation & lifecycle
-    # ------------------------------------------------------------------
-
     def __init__(self, db_path="market_intelligence.db", plots_path="plots"):
+        """Constructor initialises logging, database connection, and HTTP session"""
+
         logging.basicConfig(
             level=logging.INFO,
             format="%(asctime)s - %(levelname)s - %(message)s",
@@ -79,43 +64,49 @@ class BookMarketIntelligence:
             os.remove(db_path)
 
         self.logger = logging.getLogger("BookMarket")
+
         self.db_path = db_path
         self.plots_path = plots_path
+
         self.conn = sqlite3.connect(db_path)
         self._create_tables()
 
+        self.base_url = "http://books.toscrape.com"
         self.session = requests.Session()
         self.session.headers.update(
             {"User-Agent": "BookMarketIntelligence/1.0 (Educational)"}
         )
 
-        self.base_url = "http://books.toscrape.com"
         self.rate_limiter = deque()
         self.max_requests = 10
         self.time_window = 60.0
+
         self.progress = {}
 
         self.logger.info(f"Pipeline initialised — DB: {db_path}")
 
     def __enter__(self):
+        """Context manager entry to allow cleanup of resources with 'with' statement"""
+
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        """Context manager exit to ensure database connection is closed"""
+
         self.close()
         return False
 
     def close(self):
-        """Explicitly close the SQLite connection."""
+        """Closing the SQLite connection"""
+
         if self.conn:
             self.conn.close()
             self.conn = None
-            self.logger.info("Database connection closed.")
-
-    # ------------------------------------------------------------------
-    # Database helpers
-    # ------------------------------------------------------------------
+            self.logger.info("Database connection closed")
 
     def _create_tables(self):
+        """Create necessary tables for storing collected data and logs"""
+
         cur = self.conn.cursor()
         cur.execute(
             """
@@ -176,29 +167,34 @@ class BookMarketIntelligence:
     def _log_pipeline_event(
         self, source_type, records_collected, status, error_message=None
     ):
+        """Insert a log entry into the pipeline_logs table"""
+
         self.conn.cursor().execute(
             "INSERT INTO pipeline_logs (source_type, records_collected, status, error_message) VALUES (?, ?, ?, ?)",
             (source_type, records_collected, status, error_message),
         )
         self.conn.commit()
 
-    # ------------------------------------------------------------------
-    # Rate-limiting & HTTP helpers
-    # ------------------------------------------------------------------
-
     def _wait_for_rate_limit(self):
+        """Rate limiter to ensure we don't exceed max_requests within time_window seconds"""
+
         now = time.time()
+
         while self.rate_limiter and now - self.rate_limiter[0] > self.time_window:
             self.rate_limiter.popleft()
+
         if len(self.rate_limiter) >= self.max_requests:
             wait_time = self.time_window - (now - self.rate_limiter[0])
             self.logger.info(f"Rate limit reached — waiting {wait_time:.1f}s...")
             time.sleep(wait_time)
+
         self.rate_limiter.append(time.time())
 
     def _check_robots_txt(self, url):
-        """Return True when scraping is permitted. Defaults True on any error."""
-        from urllib.robotparser import RobotFileParser
+        """
+        - Check if scraping the given URL is allowed by robots.txt
+        - Caches results for efficiency
+        """
 
         try:
             parsed = urlparse(url)
@@ -210,12 +206,16 @@ class BookMarketIntelligence:
         except Exception:
             return True
 
-    def _scrap_with_retry(self, url, max_attempts=3):
-        """GET with exponential backoff. Respects Retry-After on 429/503."""
-        for attempt in range(1, max_attempts + 1):
+    def _fetch_with_retry(self, url, retries=3):
+        """Scrape a URL with retries and exponential backoff for handling errors and rate limits"""
+
+        # Try up to retries times with exponential backoff
+        for attempt in range(1, retries + 1):
             try:
                 self._wait_for_rate_limit()
                 response = self.session.get(url, timeout=10)
+
+                # Handle HTTP 429 Too Many Requests and 503 Service Unavailable
                 if response.status_code in (429, 503):
                     retry_after = int(response.headers.get("Retry-After", 2**attempt))
                     self.logger.warning(
@@ -225,23 +225,25 @@ class BookMarketIntelligence:
                     continue
                 response.raise_for_status()
                 return response.text
+
             except Exception as e:
+                # Backoff time doubles with each attempt
                 wait_time = 2 ** (attempt - 1)
                 self.logger.warning(f"Attempt {attempt} failed for {url}: {e}")
-                if attempt < max_attempts:
+
+                if attempt < retries:
                     time.sleep(wait_time)
                 else:
-                    self.logger.error(f"All {max_attempts} attempts failed for {url}")
+                    self.logger.error(f"All {retries} attempts failed for {url}")
                     return None
 
-    # ------------------------------------------------------------------
-    # Validation helpers
-    # ------------------------------------------------------------------
-
     def _validate_web_book_data(self, book):
+        """Validate scraped book data before insertion into the database"""
+
         if not book.get("title"):
             self.logger.warning("Invalid book: missing title")
             return False
+
         if not isinstance(book.get("price"), (int, float)) or book["price"] <= 0:
             self.logger.warning(
                 f"Invalid price for '{book.get('title')}': {book.get('price')}"
@@ -257,7 +259,7 @@ class BookMarketIntelligence:
                 f"Invalid in_stock for '{book.get('title')}': {book.get('in_stock')}"
             )
             return False
-        if book.get("category") not in self.CATEGORY_TAGS:
+        if book.get("category") not in CATEGORY_TAGS:
             self.logger.warning(
                 f"Invalid category for '{book.get('title')}': {book.get('category')}"
             )
@@ -265,6 +267,8 @@ class BookMarketIntelligence:
         return True
 
     def _validate_book_data(self, book):
+        """Validate book data from the library database before insertion"""
+
         if not book.get("title"):
             self.logger.warning("Invalid book: missing title")
             return False
@@ -289,6 +293,7 @@ class BookMarketIntelligence:
         return True
 
     def _validate_repo_data(self, repo):
+        """Validate GitHub repository data before insertion into the database"""
         if not repo.get("name"):
             self.logger.warning("Invalid repo: missing name")
             return False
@@ -306,14 +311,9 @@ class BookMarketIntelligence:
             return False
         return True
 
-    # ------------------------------------------------------------------
-    # Data collection  ①  Local database
-    # ------------------------------------------------------------------
-
     def collect_from_database(self, source_db_path="./library.db"):
-        """
-        Read books from a local SQLite library and insert into library_books.
-        """
+        """Read books from a local SQLite library and insert into library_books"""
+
         self.logger.info(f"Collecting from database: {source_db_path}")
         source_conn = None
         try:
@@ -332,7 +332,7 @@ class BookMarketIntelligence:
                 source_conn,
             )
         except Exception as e:
-            self._log_pipeline_event("database", 0, self.STATUS_ERROR, str(e))
+            self._log_pipeline_event("database", 0, STATUS_ERROR, str(e))
             self.logger.error(f"Error reading source database: {e}")
             return pd.DataFrame()
         finally:
@@ -360,27 +360,18 @@ class BookMarketIntelligence:
                 )
                 self.conn.commit()
 
-            self._log_pipeline_event("database", len(df_valid), self.STATUS_SUCCESS)
+            self._log_pipeline_event("database", len(df_valid), STATUS_SUCCESS)
             self.logger.info(f"Collected {len(df_valid)} valid records from database")
             return df_valid
 
         except Exception as e:
-            self._log_pipeline_event("database", 0, self.STATUS_ERROR, str(e))
+            self._log_pipeline_event("database", 0, STATUS_ERROR, str(e))
             self.logger.error(f"Error inserting library data: {e}")
             return pd.DataFrame()
 
-    # ------------------------------------------------------------------
-    # Data collection  ②  GitHub API
-    # ------------------------------------------------------------------
-
     def collect_from_api(self, query="books python sports", per_page=20):
-        """
-        Search GitHub repositories and insert results into github_repos.
+        """Search GitHub repositories and insert results into github_repos"""
 
-        FIX: replaced to_sql(if_exists="append") — which blindly appended rows on
-        every run regardless of duplicates — with a temp-table pattern that feeds
-        INSERT OR IGNORE so the UNIQUE(full_name) constraint is respected.
-        """
         self.logger.info(
             f"Collecting from GitHub API: query='{query}', per_page={per_page}"
         )
@@ -436,26 +427,21 @@ class BookMarketIntelligence:
                 self.conn.execute("DROP TABLE github_repos_temp")
                 self.conn.commit()
 
-            self._log_pipeline_event("api", len(df_valid), self.STATUS_SUCCESS)
+            self._log_pipeline_event("api", len(df_valid), STATUS_SUCCESS)
             self.logger.info(f"Collected {len(df_valid)} valid records from API")
             return df_valid
 
         except Exception as e:
-            self._log_pipeline_event("api", 0, self.STATUS_ERROR, str(e))
+            self._log_pipeline_event("api", 0, STATUS_ERROR, str(e))
             self.logger.error(f"Error collecting from API: {e}")
             return pd.DataFrame()
-
-    # ------------------------------------------------------------------
-    # Data collection  ③  Web scraping
-    # ------------------------------------------------------------------
 
     def collect_from_web(
         self, categories=None, resume=False, stop_after=None, max_pages_per_category=5
     ):
         """
-        Scrape books from http://books.toscrape.com and insert into web_books.
-        Uses a single DB cursor for the entire run.
-        Checks robots.txt before every page fetch.
+        - Scrape books from http://books.toscrape.com and insert into web_books
+        - Checks robots.txt before every page fetch
         """
         self.logger.info(
             f"Collecting from web — categories={categories}, resume={resume}, "
@@ -463,14 +449,14 @@ class BookMarketIntelligence:
         )
 
         if categories is None:
-            categories = list(self.CATEGORY_TAGS.keys())
+            categories = list(CATEGORY_TAGS.keys())
 
         total_collected = 0
         collected_books = []
         cursor = self.conn.cursor()
 
         for category in categories:
-            tag = self.CATEGORY_TAGS.get(category)
+            tag = CATEGORY_TAGS.get(category)
             if not tag:
                 self.logger.warning(f"Unknown category '{category}' — skipped")
                 continue
@@ -495,7 +481,7 @@ class BookMarketIntelligence:
                     )
                     break
 
-                html = self._scrap_with_retry(page_url)
+                html = self._fetch_with_retry(page_url)
                 if not html:
                     break
 
@@ -516,9 +502,9 @@ class BookMarketIntelligence:
                         )
                         rating_class = book.p.get("class", [])
                         rating_str = next(
-                            (c for c in rating_class if c in self.RATING_MAP), None
+                            (c for c in rating_class if c in RATING_MAP), None
                         )
-                        rating = self.RATING_MAP.get(rating_str, 0)
+                        rating = RATING_MAP.get(rating_str, 0)
                         in_stock = (
                             1
                             if "In stock"
@@ -567,9 +553,7 @@ class BookMarketIntelligence:
 
                 if stop_after and total_collected >= stop_after:
                     self.logger.info(f"stop_after={stop_after} reached — halting")
-                    self._log_pipeline_event(
-                        "web", total_collected, self.STATUS_SUCCESS
-                    )
+                    self._log_pipeline_event("web", total_collected, STATUS_SUCCESS)
                     return pd.DataFrame(collected_books)
 
                 next_link = soup.select_one("li.next a")
@@ -579,21 +563,13 @@ class BookMarketIntelligence:
                 else:
                     break
 
-        self._log_pipeline_event("web", total_collected, self.STATUS_SUCCESS)
+        self._log_pipeline_event("web", total_collected, STATUS_SUCCESS)
         self.logger.info(f"Total web records collected: {total_collected}")
         return pd.DataFrame(collected_books)
 
-    # ------------------------------------------------------------------
-    # Analysis — compute all stats (no matplotlib/seaborn)
-    # ------------------------------------------------------------------
-
     def analyze_and_visualize(self):
-        """
-        Generate statistics and visualizations for all three data sources.
-        Returns:
-            stats (dict): key statistics and insights
-            plots (dict): paths to saved plot images
-        """
+        """Generate statistics and visualizations for all three data sources"""
+
         os.makedirs(self.plots_path, exist_ok=True)
         conn = self.conn
 
@@ -605,7 +581,7 @@ class BookMarketIntelligence:
         stats = {}
         plots = {}
 
-        # ---------------- Library Genres ----------------
+        # Library Categories plot, and stats
         if not df_library.empty:
             plt.figure(figsize=(8, 5))
             sns.countplot(
@@ -629,9 +605,8 @@ class BookMarketIntelligence:
             stats["top_genres"] = {}
             stats["lib_total"] = 0
 
-        # ---------------- Web Price & Rating ----------------
+        # Web Price & Rating plots, and stats
         if not df_web.empty:
-            # Stats
             stats["web_total"] = len(df_web)
             stats["price_mean"] = round(float(df_web["price"].mean()), 2)
             stats["price_median"] = round(float(df_web["price"].median()), 2)
@@ -650,7 +625,7 @@ class BookMarketIntelligence:
                 df_web.groupby("category")["rating"].mean().idxmax()
             )
 
-            # Price distribution
+            # Price distribution plots, and stats
             plt.figure(figsize=(6, 4))
             sns.histplot(df_web["price"].dropna(), bins=20, kde=True, color="#2b6cb0")
             plt.title("Price Distribution of Web Scraped Books")
@@ -662,7 +637,7 @@ class BookMarketIntelligence:
             plt.close()
             plots["price_distribution"] = path
 
-            # Rating distribution
+            # Rating distribution plots, and stats
             plt.figure(figsize=(6, 4))
             sns.countplot(
                 data=df_web,
@@ -679,7 +654,7 @@ class BookMarketIntelligence:
             plt.close()
             plots["rating_distribution"] = path
 
-            # Price vs rating
+            # Price vs rating plots, and stats
             plt.figure(figsize=(6, 4))
             sns.boxplot(data=df_web, x="rating", y="price", color="#2b6cb0")
             plt.title("Price vs Rating")
@@ -690,6 +665,33 @@ class BookMarketIntelligence:
             plt.savefig(path)
             plt.close()
             plots["price_vs_rating"] = path
+
+            # Market Analysis plots, and stats
+            plt.figure(figsize=(8, 5))
+
+            summary_data = {
+                "Avg Price (£)": stats["price_mean"],
+                "Median Price (£)": stats["price_median"],
+                "Avg Rating": stats["rating_mean"],
+                "In Stock %": stats["in_stock_pct"],
+            }
+
+            sns.barplot(
+                x=list(summary_data.keys()),
+                y=list(summary_data.values()),
+                color="#3182ce",
+            )
+
+            plt.title("Book Market Overview")
+            plt.ylabel("Value")
+            plt.xticks(rotation=20)
+
+            path = os.path.join(self.plots_path, "market_analysis.png")
+            plt.tight_layout()
+            plt.savefig(path)
+            plt.close()
+
+            plots["market_analysis"] = path
 
         else:
             stats.update(
@@ -706,7 +708,7 @@ class BookMarketIntelligence:
                 }
             )
 
-        # ---------------- GitHub Languages & Stars/Forks ----------------
+        # GitHub Languages and Stars/Forks plots, and stats
         if not df_api.empty:
             top_langs = df_api["language"].dropna().value_counts().head(10).to_dict()
             stats["top_languages"] = top_langs
@@ -715,7 +717,7 @@ class BookMarketIntelligence:
                 pd.to_numeric(df_api["stars"], errors="coerce").fillna(0).sum()
             )
 
-            # Top languages
+            # Top languages bar plot, and stats
             plt.figure(figsize=(7, 4))
             if top_langs:
                 sns.barplot(
@@ -737,7 +739,7 @@ class BookMarketIntelligence:
             plt.close()
             plots["top_languages"] = path
 
-            # Stars vs Forks
+            # Stars vs Forks scatter plot, and stats
             df_nonzero = df_api[(df_api["stars"] > 0) | (df_api["forks"] > 0)]
             plt.figure(figsize=(6, 4))
             if not df_nonzero.empty:
@@ -772,103 +774,24 @@ class BookMarketIntelligence:
         stats["generated_at"] = datetime.now().strftime("%B %d, %Y at %H:%M")
         return stats, plots
 
-    # ------------------------------------------------------------------
-    # HTML report
-    # ------------------------------------------------------------------
+    def generate_html_report(
+        self, stats, report_file="templates/report.html", output_file="analysis.html"
+    ):
+        """Generate an HTML report using the analysis stats dictionary"""
 
-    def generate_html_report(self, stats, output_file="analysis.html"):
-        """
-        Generate an HTML report using the analysis stats dictionary.
-        All numbers are pulled from the stats dict, not hardcoded.
-        """
-        html = f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <title>Book Market Intelligence Report</title>
+        with open(report_file, "r", encoding="utf-8") as f:
+            template = f.read()
 
-    <style>
-    body {{ font-family: Arial; max-width: 960px; margin: 40px auto; color: #333; line-height: 1.6; }}
-    h1 {{ color: #2c5282; border-bottom: 3px solid #2c5282; padding-bottom: 8px; }}
-    h2 {{ color: #2b6cb0; margin-top: 36px; }}
-    table {{ border-collapse: collapse; width: 100%; margin: 16px 0; }}
-    th, td {{ border: 1px solid #ddd; padding: 10px 14px; text-align: left; }}
-    th {{ background: #2c5282; color: #fff; }}
-    tr:nth-child(even) {{ background: #f7fafc; }}
-    .cards {{ display:flex; flex-wrap:wrap; gap:12px; margin:16px 0; }}
-    .card {{ background:#ebf8ff; border-left:4px solid #3182ce; padding:14px 22px; border-radius:4px; min-width:160px; }}
-    .card b {{ display:block; font-size:1.4em; color:#2c5282; }}
-    img {{ max-width:100%; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,.15); margin-top:20px; }}
-    ul li {{ margin-bottom: 6px; }}
-    footer {{ color: #aaa; font-size: .85em; margin-top:48px; border-top:1px solid #eee; padding-top:12px; }}
-    </style>
-    </head>
-
-    <body>
-
-    <h1>Book Market Intelligence Report</h1>
-    <p>Generated: <strong>{stats.get("generated_at","")}</strong></p>
-
-    <h2>Executive Summary</h2>
-    <div class="cards">
-    <div class="card"><b>{stats.get("web_total",0)}</b> Web Books Scraped</div>
-    <div class="card"><b>{stats.get("api_total",0)}</b> GitHub Repositories</div>
-    <div class="card"><b>{stats.get("lib_total",0)}</b> Library Books (DB)</div>
-    <div class="card"><b>£{stats.get("price_mean",0)}</b> Average Web Price</div>
-    <div class="card"><b>{stats.get("rating_mean",0)} ★</b> Average Rating</div>
-    <div class="card"><b>{stats.get("in_stock_pct",0)}%</b> In Stock</div>
-    </div>
-
-    <h2>Data Collection Statistics</h2>
-    <table>
-    <tr><th>Source</th><th>Records Collected</th></tr>
-    <tr><td>Library Database</td><td>{stats.get("lib_total",0)}</td></tr>
-    <tr><td>Web Scraping</td><td>{stats.get("web_total",0)}</td></tr>
-    <tr><td>GitHub API</td><td>{stats.get("api_total",0)}</td></tr>
-    </table>
-
-    <h2>Market Insights</h2>
-    <table>
-    <tr><th>Metric</th><th>Finding</th></tr>
-    <tr><td>Most expensive category</td><td><strong>{stats.get("most_expensive_category","N/A")}</strong></td></tr>
-    <tr><td>Cheapest category</td><td><strong>{stats.get("cheapest_category","N/A")}</strong></td></tr>
-    <tr><td>Highest rated category</td><td><strong>{stats.get("highest_rated_category","N/A")}</strong></td></tr>
-    <tr><td>Overall average price</td><td>£{stats.get("price_mean",0)}</td></tr>
-    <tr><td>Overall average rating</td><td>{stats.get("rating_mean",0)} / 5</td></tr>
-    <tr><td>Availability</td><td>{stats.get("in_stock_pct",0)}% of books currently in stock</td></tr>
-    </table>
-
-    <h2>Visualizations</h2>
-    <img src="plots/market_analysis.png" alt="Market Analysis Charts">
-    <img src="plots/popular_genres.png" alt="Popular Genres">
-    <img src="plots/price_vs_rating.png" alt="Price vs Rating">
-    <img src="plots/rating_distribution.png" alt="Rating Distribution">
-    <img src="plots/stars_vs_forks.png" alt="GitHub Stars vs Forks">
-    <img src="plots/top_languages.png" alt="Top Programming Languages">
-
-    <h2>Recommendations</h2>
-    <ul>
-    <li>Maintain high stock for top-rated categories.</li>
-    <li>Leverage popular technologies identified in GitHub repositories.</li>
-    <li>Combine web prices and library demand for smarter stocking.</li>
-    </ul>
-
-    <footer>Book Market Intelligence System — Data Science Lab 03 — 2026</footer>
-    </body>
-    </html>
-    """
+        template = Template(template)
+        html = template.safe_substitute(**stats)
 
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(html)
         self.logger.info(f"Report generated at {output_file}")
 
-    # ------------------------------------------------------------------
-    # Export
-    # ------------------------------------------------------------------
-
     def export_all_data(self, output_dir="exports"):
-        """Export every pipeline table to a CSV file under output_dir."""
+        """Export every pipeline table to a CSV file under output_dir"""
+
         os.makedirs(output_dir, exist_ok=True)
         for table in ("web_books", "github_repos", "library_books", "pipeline_logs"):
             df = pd.read_sql_query(f"SELECT * FROM {table}", self.conn)
@@ -877,16 +800,11 @@ class BookMarketIntelligence:
             print(f"  ✓ {path}  ({len(df)} rows)")
         self.logger.info(f"All data exported to '{output_dir}/'")
 
-    # ------------------------------------------------------------------
-    # Pipeline entrypoint
-    # ------------------------------------------------------------------
-
     def run(self, library_db="./library.db", github_query="books python sports"):
         """
-        Execute the full pipeline end-to-end.
+        Execute the full pipeline
 
-        Steps
-        -----
+        Steps:
         1. Collect from local library database
         2. Collect from GitHub API
         3. Collect from books.toscrape.com
@@ -895,27 +813,27 @@ class BookMarketIntelligence:
         6. Export all tables to CSV
         """
 
-        print("=" * 70)
+        print("%" * 70)
         print("  BOOK MARKET INTELLIGENCE SYSTEM")
-        print("=" * 70)
-        print("Starting full data collection pipeline...\n")
+        print("%" * 70)
+        print("Starting full data collection pipeline\n")
 
-        print(f"(1/7) Collecting from database: {library_db} ...")
+        print(f"(1/6) Database gatherings from: {library_db}")
         self.collect_from_database(library_db)
 
-        print(f"\n(2/7) Collecting from GitHub API (query='{github_query}') ...")
+        print(f"\n(2/6) GitHub API gatherings with (query='{github_query}')")
         self.collect_from_api(github_query)
 
-        print("\n(3/7) Collecting from web (max 5 pages/category) ...")
+        print("\n(3/6) Web scraping gatherings")
         self.collect_from_web(max_pages_per_category=5)
 
-        print("\n(5/7) Analysis and generate plots ...")
-        stats, plots = self.analyze_and_visualize()
+        print("\n(4/6) Data analysis and plots generation")
+        stats, _ = self.analyze_and_visualize()
 
-        print("\n(6/7) Generating HTML report ...")
+        print("\n(5/6) Generating HTML report")
         self.generate_html_report(stats)
 
-        print("\n(7/7) Exporting all tables to CSV ...")
+        print("\n(6/6) Exporting all tables to CSV format")
         self.export_all_data()
 
         print("\n" + "=" * 70)
@@ -931,12 +849,8 @@ class BookMarketIntelligence:
         print("  exports/                — CSV exports of every table")
         print("  pipeline.log            — full audit log")
         print("  market_intelligence.db  — structured SQLite database")
-        print("=" * 70)
+        print("%" * 70)
 
-
-# ----------------------------------------------------------------------
-# Entry point
-# ----------------------------------------------------------------------
 
 if __name__ == "__main__":
     with BookMarketIntelligence() as pipeline:

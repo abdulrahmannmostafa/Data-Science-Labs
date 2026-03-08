@@ -1,23 +1,123 @@
-2026-03-07 22:45:24,650 - INFO - Pipeline initialised — DB: market_intelligence.db
-2026-03-07 22:45:24,651 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
-2026-03-07 22:45:24,668 - INFO - Collected 50 valid records from database
-2026-03-07 22:45:24,669 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
-2026-03-07 22:45:24,985 - INFO - Collected 6 valid records from API
-2026-03-07 22:45:24,986 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
-2026-03-07 22:45:25,704 - INFO - 'Sports_And_Games' page 1: 5 books collected
-2026-03-07 22:45:26,337 - INFO - 'Travel' page 1: 11 books collected
-2026-03-07 22:45:26,980 - INFO - 'Mystery' page 1: 20 books collected
-2026-03-07 22:45:27,650 - INFO - 'Mystery' page 2: 12 books collected
-2026-03-07 22:45:28,306 - INFO - 'Science_Fiction' page 1: 16 books collected
-2026-03-07 22:45:28,937 - INFO - 'History' page 1: 18 books collected
-2026-03-07 22:45:29,586 - INFO - 'Childrens' page 1: 20 books collected
-2026-03-07 22:45:30,091 - INFO - 'Childrens' page 2: 9 books collected
-2026-03-07 22:45:30,771 - INFO - 'Philosophy' page 1: 11 books collected
-2026-03-07 22:45:30,781 - INFO - Total web records collected: 122
-2026-03-07 22:45:31,199 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2026-03-07 22:45:31,203 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2026-03-07 22:45:31,312 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2026-03-07 22:45:31,315 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2026-03-07 22:45:31,799 - INFO - Report generated at analysis.html
-2026-03-07 22:45:31,815 - INFO - All data exported to 'exports/'
-2026-03-07 22:45:31,818 - INFO - Database connection closed.
+2026-03-08 20:30:14,700 - INFO - Pipeline initialised — DB: market_intelligence.db
+2026-03-08 20:30:14,701 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
+2026-03-08 20:30:14,704 - WARNING - Invalid book: missing required fields in {'book_id': 6, 'title': 'Book 6', 'author': 'Ernest Hemingway', 'genre': 'History', 'publication_year': 1981, 'copies_available': 0}
+2026-03-08 20:30:14,705 - WARNING - Invalid book: missing required fields in {'book_id': 31, 'title': 'Book 31', 'author': 'Isaac Asimov', 'genre': 'History', 'publication_year': 1968, 'copies_available': 0}
+2026-03-08 20:30:14,716 - INFO - Collected 48 valid records from database
+2026-03-08 20:30:14,717 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-08 20:30:15,253 - WARNING - Invalid repo: missing required fields in {'name': 'Best-Private-University-in-Uttar-Pradesh-UP-Top-University-in-India-SVU', 'full_name': 'shrivenkateshwara/Best-Private-University-in-Uttar-Pradesh-UP-Top-University-in-India-SVU', 'stars': 7, 'forks': 0, 'language': nan, 'description': 'Sri Venkateshwara University (SVU) strives to create professionals who are not only adept in academics but also in application for the benefit of humanity.  We foster a culture of learning by doing. We believe in nurturing students who are at the forefront of innovation by offering an environment of research & development to make us Best University in Uttar Pradesh (UP).  SVU believes in experiential learning. To facilitate this, we have an ultra-modern infrastructure that motivates students to experiment & excel in their area of interest. The Best University of Moradabad has laboratories & workshops that signify our commitment to core research, thus enabling innovation.  SVU is the only institution to have set up labs in collaboration with the industry. This way we can train our students on the latest skills & make them employable. Students sharpen their practical skills under the watch full eyes of trainers & become competent professionals. For the overall development of the students, we organize cultural programs. Students take part in these programs & exhibit their talent to become confident professionals. The annual fest attracts students from all over the country & showcase their talent to make us the Top University in India. We equipped the computing labs with the latest software & hardware to augment the technical skills of the students.  SVU’s library is an epitome of knowledge. It has over 3000 books & journals that ensure the students are never short on intellectual input. The team of industry trainers educate them on the key skills so crucial for employment & make us the Best University in Gajraula. The specially created engineering labs assist engineers to refine their technical acumen so much needed for the country.  The Chairman Dr. Sudhir Giri believes in removing all the economic & social barriers that can hinder education. Hence, SVU provides many scholarships & grants to meritorious students.  Up till now, the college has enabled over 500000 students to attain their academic desires to make us the Best Private University in Uttar Pradesh (UP). The group is running a dozen educational institutions that include medical colleges in India & abroad. Our commitment towards education & healthcare has enabled Dr Sudhir Giri to win the International Glory Man of the year Award 2021.  The Best Private University in Moradabad is on the Delhi Moradabad highway, well connected with rail & road. The green surroundings provide peace of mind that enables research based learning. The carefully recruited faculty is the pride of the university. They have years of industrial & academic experience so vital for the students. They transfer key skills & make us the Best Private University in Gajraula.  The faculty encourages students to undertake research & sharpen their skills that will enable them to get jobs.  Majority of the faculty members are doctorates who educate the students to become competent professionals. The faculty takes part in FDP in order to develop a culture of research. The specialty of SVU is the internship. We have partnered with leading industries for providing internship to the students. We believe that education without applicability is incomplete.  Students gain hands on exposure through internship & become job ready. We place most of the students during internship to make us the Top University in India. SVU, the Best University in Uttar Pradesh (UP), adopts a futuristic teaching pedagogy.  We strive for experiential learning of our students through role plays, projects & presentation. The students take part in the learning activity & imbibe concepts that enable their placements. The AC seminar & conference halls allow knowledge dispersion for the development of the students. The University is running over 150 undergraduate (UG), postgraduate (PG) courses, (Ph.D.), diploma and certificate courses in various fields of Applied Sciences, Medical Science, Humanities & Social Sciences. We also run courses in Languages, Design, Agriculture, Engineering & Technology, Nursing, Pharmacy, Paramedical, Commerce & Management, Law, Library & information Sciences, Mass Comm. & Journalism to enhance the employability of the youth. SVU has a culture of project based learning. Students do projects in each semester under the guidance of faculty. They complete these projects in earmarked industries to garner hands-on skills.  Through these projects, we train students on the hot skills so crucial for employment to make us the Best University in Moradabad. SVU’s Research & Development (R&D) wing encourages students to work on research areas important for the country. We have partnered with leading research institutions to undertake research.  The breath-taking infrastructure of the best university in Gajraula motivates researchers to achieve their goals for research. Owing to our dedication, SVU has received grants from GOI for research on areas of national importance. The faculty members provide guidance to the scholars until they achieve their aim. We have set up the incubation center to provide fillip to new ideas that foster entrepreneurship. We want to be an institution that supports the ‘Make in India’ vision of the government. The center supports new ideas that enable the young entrepreneurs to create startups & become successful.  Under the strong leadership of Dr. Sudhir Giri, till date we have successfully incubated 150 start-ups. This speaks of our exemplary education & make us the Best Private University in Uttar Pradesh (UP). These startups are not only creating wealth but also providing employment to the needy. The industrialists have lamented that the epicenter for entrepreneurship will be the educational institutions. We need to provide them with the support & infrastructure for this.  The annual hackathon attracts individuals who showcase their business acumen to make us the Best Private University in Moradabad. SVU has a dedicated International Research & collaboration Cell (IRCC) that collaborates with universities abroad.  Faculty & students who want to pursue studies abroad the IRCC starts admission formalities for them. We have partnered with reputed institutions for providing excellent research collaborations. Those who wish to do P. HD abroad the IRCC help them gain admission & make us the Top University in India.  A lot of our faculty members are pursuing their research internationally & contributing to the welfare of humanity. SVU strives to make our students feel comfortable at the campus. Separate hostel for boys & girls with 24 hour security is available at SVU.  The cafeteria serves nutritious food to the students. Gym, recreation hall & the sports ground help to relax our students & make us the Best University in Uttar Pradesh (UP). The campus has an in house ATM & convenience store for the benefit of the students. SVU enables placement through exemplary training. We train on communication & interpersonal skills in order to refine the personality of the students.  We make them practice mock interviews & group discussion that help to clear placement tests. Ninety percent of the students get placed before their last semester to make us the best university in Moradabad. We have hired industrial trainers in order to provide training on block chain, machine learning, artificial intelligence (AI), and python & data science.  These trainers have years of experience that enables them in training the students. The students gain key insights on these technologies & sharpen their acumen to make us the Best University in Gajraula.', 'html_url': 'https://github.com/shrivenkateshwara/Best-Private-University-in-Uttar-Pradesh-UP-Top-University-in-India-SVU'}
+2026-03-08 20:30:15,254 - WARNING - Invalid repo: missing required fields in {'name': 'Off-The-Book-twitterBot', 'full_name': 'Daniel-Higgins/Off-The-Book-twitterBot', 'stars': 1, 'forks': 0, 'language': 'Python', 'description': 'This python application reports the best odds per game in a list from the most popular sports books to use. ', 'html_url': 'https://github.com/Daniel-Higgins/Off-The-Book-twitterBot'}
+2026-03-08 20:30:15,255 - WARNING - Invalid repo: missing required fields in {'name': 'odds-cli', 'full_name': 'ianalloway/odds-cli', 'stars': 1, 'forks': 0, 'language': 'Python', 'description': 'Check live sports odds from your terminal. Compare across books, find value, calculate Kelly sizing. NBA, NFL, MLB, NHL.', 'html_url': 'https://github.com/ianalloway/odds-cli'}
+2026-03-08 20:30:15,255 - WARNING - Invalid repo: missing required fields in {'name': 'bonus-hedge', 'full_name': 'louaih/bonus-hedge', 'stars': 1, 'forks': 0, 'language': 'Python', 'description': 'Find optimal hedging opportunities for sportsbook bonus bets with guaranteed profit calculations across multiple books', 'html_url': 'https://github.com/louaih/bonus-hedge'}
+2026-03-08 20:30:15,255 - WARNING - Invalid repo: missing required fields in {'name': 'nfl-live-odds-analysis', 'full_name': 'juliagrove/nfl-live-odds-analysis', 'stars': 0, 'forks': 0, 'language': 'Jupyter Notebook', 'description': 'Analysis of sports betting odds across several NFL games. The data covers live odds collected across 6 different sports books.', 'html_url': 'https://github.com/juliagrove/nfl-live-odds-analysis'}
+2026-03-08 20:30:15,256 - WARNING - Invalid repo: missing required fields in {'name': 'RegisterUtilityVinhomes', 'full_name': 'maihuybao/RegisterUtilityVinhomes', 'stars': 0, 'forks': 0, 'language': 'Python', 'description': 'An automated utility booking system for Vinhomes residents. This Python application automatically books utilities (gyms, pools, sports facilities, etc.) at your preferred time by integrating with the Vinhomes Resident API.', 'html_url': 'https://github.com/maihuybao/RegisterUtilityVinhomes'}
+2026-03-08 20:30:15,263 - INFO - Collected 0 valid records from API
+2026-03-08 20:30:15,264 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-08 20:30:15,919 - INFO - 'Sports_And_Games' page 1: 5 books collected
+2026-03-08 20:30:16,531 - INFO - 'Travel' page 1: 11 books collected
+2026-03-08 20:30:17,150 - INFO - 'Mystery' page 1: 20 books collected
+2026-03-08 20:30:17,759 - INFO - 'Mystery' page 2: 12 books collected
+2026-03-08 20:30:18,374 - INFO - 'Science_Fiction' page 1: 16 books collected
+2026-03-08 20:30:18,999 - INFO - 'History' page 1: 18 books collected
+2026-03-08 20:30:19,621 - INFO - 'Childrens' page 1: 20 books collected
+2026-03-08 20:30:20,233 - INFO - 'Childrens' page 2: 9 books collected
+2026-03-08 20:30:20,839 - INFO - 'Philosophy' page 1: 11 books collected
+2026-03-08 20:30:20,849 - INFO - Total web records collected: 122
+2026-03-08 20:30:21,273 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:30:21,278 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:30:21,393 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:30:21,397 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:30:21,544 - INFO - Report generated at analysis.html
+2026-03-08 20:30:21,561 - INFO - All data exported to 'exports/'
+2026-03-08 20:30:21,564 - INFO - Database connection closed
+2026-03-08 20:32:59,306 - INFO - Pipeline initialised — DB: market_intelligence.db
+2026-03-08 20:32:59,307 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
+2026-03-08 20:32:59,324 - INFO - Collected 50 valid records from database
+2026-03-08 20:32:59,325 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-08 20:32:59,873 - INFO - Collected 6 valid records from API
+2026-03-08 20:32:59,874 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-08 20:33:00,511 - INFO - 'Sports_And_Games' page 1: 5 books collected
+2026-03-08 20:33:01,117 - INFO - 'Travel' page 1: 11 books collected
+2026-03-08 20:33:01,730 - INFO - 'Mystery' page 1: 20 books collected
+2026-03-08 20:33:02,348 - INFO - 'Mystery' page 2: 12 books collected
+2026-03-08 20:33:02,958 - INFO - 'Science_Fiction' page 1: 16 books collected
+2026-03-08 20:33:03,573 - INFO - 'History' page 1: 18 books collected
+2026-03-08 20:33:04,197 - INFO - 'Childrens' page 1: 20 books collected
+2026-03-08 20:33:04,803 - INFO - 'Childrens' page 2: 9 books collected
+2026-03-08 20:33:05,414 - INFO - 'Philosophy' page 1: 11 books collected
+2026-03-08 20:33:05,422 - INFO - Total web records collected: 122
+2026-03-08 20:33:05,813 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:33:05,818 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:33:05,946 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:33:05,951 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:33:06,463 - INFO - Report generated at analysis.html
+2026-03-08 20:33:06,479 - INFO - All data exported to 'exports/'
+2026-03-08 20:33:06,482 - INFO - Database connection closed
+2026-03-08 20:41:04,305 - INFO - Pipeline initialised — DB: market_intelligence.db
+2026-03-08 20:41:04,306 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
+2026-03-08 20:41:04,324 - INFO - Collected 50 valid records from database
+2026-03-08 20:41:04,325 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-08 20:41:04,837 - INFO - Collected 6 valid records from API
+2026-03-08 20:41:04,838 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-08 20:41:05,575 - INFO - 'Sports_And_Games' page 1: 5 books collected
+2026-03-08 20:41:06,184 - INFO - 'Travel' page 1: 11 books collected
+2026-03-08 20:41:06,805 - INFO - 'Mystery' page 1: 20 books collected
+2026-03-08 20:41:07,413 - INFO - 'Mystery' page 2: 12 books collected
+2026-03-08 20:41:08,024 - INFO - 'Science_Fiction' page 1: 16 books collected
+2026-03-08 20:41:08,641 - INFO - 'History' page 1: 18 books collected
+2026-03-08 20:41:09,277 - INFO - 'Childrens' page 1: 20 books collected
+2026-03-08 20:41:09,765 - INFO - 'Childrens' page 2: 9 books collected
+2026-03-08 20:41:10,379 - INFO - 'Philosophy' page 1: 11 books collected
+2026-03-08 20:41:10,388 - INFO - Total web records collected: 122
+2026-03-08 20:41:10,883 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:41:10,888 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:41:11,081 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:41:11,090 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:41:11,929 - INFO - Report generated at analysis.html
+2026-03-08 20:41:11,948 - INFO - All data exported to 'exports/'
+2026-03-08 20:41:11,951 - INFO - Database connection closed
+2026-03-08 20:45:36,372 - INFO - Pipeline initialised — DB: market_intelligence.db
+2026-03-08 20:45:36,373 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
+2026-03-08 20:45:36,394 - INFO - Collected 50 valid records from database
+2026-03-08 20:45:36,395 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-08 20:45:36,898 - INFO - Collected 6 valid records from API
+2026-03-08 20:45:36,899 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-08 20:45:37,551 - INFO - 'Sports_And_Games' page 1: 5 books collected
+2026-03-08 20:45:38,390 - INFO - 'Travel' page 1: 11 books collected
+2026-03-08 20:45:39,130 - INFO - 'Mystery' page 1: 20 books collected
+2026-03-08 20:45:39,791 - INFO - 'Mystery' page 2: 12 books collected
+2026-03-08 20:45:40,414 - INFO - 'Science_Fiction' page 1: 16 books collected
+2026-03-08 20:45:41,046 - INFO - 'History' page 1: 18 books collected
+2026-03-08 20:45:41,664 - INFO - 'Childrens' page 1: 20 books collected
+2026-03-08 20:45:42,326 - INFO - 'Childrens' page 2: 9 books collected
+2026-03-08 20:45:42,937 - INFO - 'Philosophy' page 1: 11 books collected
+2026-03-08 20:45:42,948 - INFO - Total web records collected: 122
+2026-03-08 20:45:43,449 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:45:43,453 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:45:43,560 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:45:43,565 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:45:44,349 - INFO - Report generated at analysis.html
+2026-03-08 20:45:44,371 - INFO - All data exported to 'exports/'
+2026-03-08 20:45:44,376 - INFO - Database connection closed
+2026-03-08 20:46:32,780 - INFO - Pipeline initialised — DB: market_intelligence.db
+2026-03-08 20:46:32,781 - INFO - Collecting from database: D:\CMP\Data Science\Labs\Lab 3\src\Integrated Data Pipeline\library.db
+2026-03-08 20:46:32,799 - INFO - Collected 50 valid records from database
+2026-03-08 20:46:32,800 - INFO - Collecting from GitHub API: query='books python sports', per_page=20
+2026-03-08 20:46:33,335 - INFO - Collected 6 valid records from API
+2026-03-08 20:46:33,335 - INFO - Collecting from web — categories=None, resume=False, stop_after=None, max_pages_per_category=5
+2026-03-08 20:46:34,072 - INFO - 'Sports_And_Games' page 1: 5 books collected
+2026-03-08 20:46:34,673 - INFO - 'Travel' page 1: 11 books collected
+2026-03-08 20:46:35,330 - INFO - 'Mystery' page 1: 20 books collected
+2026-03-08 20:46:35,974 - INFO - 'Mystery' page 2: 12 books collected
+2026-03-08 20:46:36,581 - INFO - 'Science_Fiction' page 1: 16 books collected
+2026-03-08 20:46:37,194 - INFO - 'History' page 1: 18 books collected
+2026-03-08 20:46:37,825 - INFO - 'Childrens' page 1: 20 books collected
+2026-03-08 20:46:38,296 - INFO - 'Childrens' page 2: 9 books collected
+2026-03-08 20:46:38,905 - INFO - 'Philosophy' page 1: 11 books collected
+2026-03-08 20:46:38,915 - INFO - Total web records collected: 122
+2026-03-08 20:46:39,501 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:46:39,507 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:46:39,684 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:46:39,688 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-03-08 20:46:40,339 - INFO - Report generated at analysis.html
+2026-03-08 20:46:40,351 - INFO - All data exported to 'exports/'
+2026-03-08 20:46:40,353 - INFO - Database connection closed

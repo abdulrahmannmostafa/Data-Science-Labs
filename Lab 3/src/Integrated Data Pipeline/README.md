@@ -43,6 +43,12 @@ The pipeline validates every record before inserting it into a structured SQLite
 
 **Python 3.9+** is required.
 
+### Set yourself to the directory
+
+```bash
+cd "Lab 3/src/Integrated Data Pipeline"
+```
+
 ### 1. Install dependencies
 
 ```bash
@@ -71,9 +77,22 @@ If this file is absent, the database collection step logs an error and skips gra
 ## How to Run
 
 ```bash
-cd "Lab 3/src/Integrated Data Pipeline"
 python final_project.py
 ```
+
+> If you are lazy just run the bash script if you are a Linux user, or the bat file if you are a windows user
+>
+> > Linux User:
+> >
+> > > ```bash
+> > > bash run_pipeline.sh
+> > > ```
+>
+> > Windows User:
+> >
+> > > ```bat
+> > > ./run_pipeline.bat
+> > > ```
 
 The pipeline runs all steps automatically and prints progress to the terminal. When finished, plots are in `plots/` and CSV exports are in `exports/`.
 
